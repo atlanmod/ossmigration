@@ -30,7 +30,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/svn_url"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/mirror_url"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/homepage"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/wiki_url"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/size"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/master_branch"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/name"/>
@@ -40,6 +39,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/languages"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/milestones"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/downloads"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/wiki"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/labels"/>
     </genClasses>
     <genClasses ecoreClass="GitHub.ecore#//Content">
@@ -103,6 +103,16 @@
     </genClasses>
     <genClasses ecoreClass="GitHub.ecore#//Label">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Label/name"/>
+    </genClasses>
+    <genClasses ecoreClass="GitHub.ecore#//Wiki">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Wiki/pages"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Wiki/footer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Wiki/sidebar"/>
+    </genClasses>
+    <genClasses ecoreClass="GitHub.ecore#//WikiPage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//WikiPage/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//WikiPage/is_home"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//WikiPage/body"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
