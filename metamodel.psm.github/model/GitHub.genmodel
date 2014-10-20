@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/metamodel.psm.googlecode/src" modelPluginID="metamodel.psm.googlecode"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/metamodel.psm.github/src" modelPluginID="metamodel.psm.github"
     modelName="GitHub" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
@@ -13,16 +13,31 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="GitHub.ecore#//IssueState">
       <genEnumLiterals ecoreEnumLiteral="GitHub.ecore#//IssueState/open"/>
       <genEnumLiterals ecoreEnumLiteral="GitHub.ecore#//IssueState/closed"/>
-      <genEnumLiterals ecoreEnumLiteral="GitHub.ecore#//IssueState/reopened"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="GitHub.ecore#//MilestoneState">
       <genEnumLiterals ecoreEnumLiteral="GitHub.ecore#//MilestoneState/open"/>
       <genEnumLiterals ecoreEnumLiteral="GitHub.ecore#//MilestoneState/closed"/>
     </genEnums>
-    <genClasses image="false" ecoreClass="GitHub.ecore#//Project"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="GitHub.ecore#//IssueEventType">
+      <genEnumLiterals ecoreEnumLiteral="GitHub.ecore#//IssueEventType/closed"/>
+      <genEnumLiterals ecoreEnumLiteral="GitHub.ecore#//IssueEventType/reopened"/>
+      <genEnumLiterals ecoreEnumLiteral="GitHub.ecore#//IssueEventType/subscribed"/>
+      <genEnumLiterals ecoreEnumLiteral="GitHub.ecore#//IssueEventType/merged"/>
+      <genEnumLiterals ecoreEnumLiteral="GitHub.ecore#//IssueEventType/mentioned"/>
+      <genEnumLiterals ecoreEnumLiteral="GitHub.ecore#//IssueEventType/assigned"/>
+      <genEnumLiterals ecoreEnumLiteral="GitHub.ecore#//IssueEventType/unassigned"/>
+      <genEnumLiterals ecoreEnumLiteral="GitHub.ecore#//IssueEventType/referenced"/>
+      <genEnumLiterals ecoreEnumLiteral="GitHub.ecore#//IssueEventType/locked"/>
+      <genEnumLiterals ecoreEnumLiteral="GitHub.ecore#//IssueEventType/unlocked"/>
+    </genEnums>
     <genClasses ecoreClass="GitHub.ecore#//Repository">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/created_at"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/owner"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/private"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/fork"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/has_wiki"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/html_url"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/clone_url"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/git_url"/>
@@ -32,19 +47,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/homepage"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/size"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/master_branch"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/full_name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/forks"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/contents"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/languages"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/milestones"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/downloads"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/wiki"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/releases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/issues"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/labels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/wiki"/>
     </genClasses>
     <genClasses ecoreClass="GitHub.ecore#//Content">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Content/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Content/envoding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Content/encoding"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Content/size"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Content/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Content/path"/>
@@ -61,45 +74,49 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Milestone/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Milestone/created_at"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Milestone/due_on"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Milestone/open_issues"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Milestone/closed_issues"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Milestone/creator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Milestone/open_issues"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Milestone/closed_issues"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Milestone/labels"/>
     </genClasses>
-    <genClasses ecoreClass="GitHub.ecore#//Download">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Download/url"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Download/html_url"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Download/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Download/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Download/size"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Download/download_count"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Download/content_type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Download/_id"/>
+    <genClasses ecoreClass="GitHub.ecore#//Release">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Release/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Release/html_url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Release/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Release/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Release/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Release/download_count"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Release/content_type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Release/_id"/>
     </genClasses>
     <genClasses ecoreClass="GitHub.ecore#//Issue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Issue/number"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Issue/state"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Issue/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/actor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Issue/body"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Issue/state"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Issue/created_at"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Issue/updated_at"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Issue/closed_at"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/assignee"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/creator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/mentioned_users"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/subscribed_users"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/referenced_issues"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/labels"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/milestone"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/comments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/events"/>
+    </genClasses>
+    <genClasses ecoreClass="GitHub.ecore#//IssueEvent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//IssueEvent/actor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//IssueEvent/created_at"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//IssueEvent/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//IssueEvent/referenced_issue"/>
+    </genClasses>
+    <genClasses ecoreClass="GitHub.ecore#//IssueComment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//IssueComment/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//IssueComment/actor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//IssueComment/created_at"/>
     </genClasses>
     <genClasses ecoreClass="GitHub.ecore#//User">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//User/login"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//User/html_url"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//User/followers"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="GitHub.ecore#//Person"/>
-    <genClasses ecoreClass="GitHub.ecore#//BugTrackingSystem"/>
-    <genClasses ecoreClass="GitHub.ecore#//BugTracker">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//BugTracker/issues"/>
     </genClasses>
     <genClasses ecoreClass="GitHub.ecore#//Label">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Label/name"/>
