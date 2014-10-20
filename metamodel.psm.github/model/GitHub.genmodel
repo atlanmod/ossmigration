@@ -77,7 +77,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Milestone/due_on"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Milestone/open_issues"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Milestone/closed_issues"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Milestone/creator"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Milestone/creator"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Milestone/labels"/>
     </genClasses>
     <genClasses ecoreClass="GitHub.ecore#//Release">
