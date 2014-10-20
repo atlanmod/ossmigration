@@ -5,8 +5,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="created_at" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//User"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//User"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="private" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fork" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="has_wiki" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -32,6 +31,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="labels" upperBound="-1"
         eType="#//Label" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="wiki" eType="#//Wiki" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1"
+        eType="#//User" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Content">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ContentType"/>
@@ -72,14 +73,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Issue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="creator" lowerBound="1"
-        eType="#//User" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="#//IssueState"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="created_at" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="closed_at" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="assignee" eType="#//User"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignee" eType="#//User"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labels" upperBound="-1"
         eType="#//Label"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="milestone" eType="#//Milestone"/>
@@ -91,16 +89,14 @@
         eType="#//User"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IssueEvent">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//User"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//User"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="created_at" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//IssueEventType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referenced_issue" eType="#//Issue"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IssueComment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" lowerBound="1" eType="#//User"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" lowerBound="1" eType="#//User"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="created_at" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="User">
