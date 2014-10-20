@@ -513,7 +513,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_uwOneVhZEeSCPrqYIdy_3w" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_uwOnelhZEeSCPrqYIdy_3w" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="GitHub.ecore#//Repository/contents"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_uwOne1hZEeSCPrqYIdy_3w" points="[-1, 0, 243, -195]$[-233, 0, 11, -195]$[-233, 61, 11, -134]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_uwOne1hZEeSCPrqYIdy_3w" points="[-1, 0, 243, -195]$[-238, 0, 6, -195]$[-238, 61, 6, -134]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_u2tC6FhZEeSCPrqYIdy_3w" id="(0.011904761904761904,0.21176470588235294)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_u2tC6VhZEeSCPrqYIdy_3w" id="(0.4966887417218543,1.0)"/>
   </edges>
