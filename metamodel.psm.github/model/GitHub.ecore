@@ -87,17 +87,18 @@
         eType="#//IssueEvent" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="creator" lowerBound="1"
         eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//IssueElement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IssueEvent">
+  <eClassifiers xsi:type="ecore:EClass" name="IssueEvent" eSuperTypes="#//IssueElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//User"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="created_at" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//IssueEventType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referenced_issue" eType="#//Issue"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IssueComment">
+  <eClassifiers xsi:type="ecore:EClass" name="IssueComment" eSuperTypes="#//IssueElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" lowerBound="1" eType="#//User"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="created_at" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="creator" lowerBound="1"
+        eType="#//User"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="User">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="login" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -140,5 +141,8 @@
     <eLiterals name="referenced" value="7" literal="referenced"/>
     <eLiterals name="locked" value="8" literal="locked"/>
     <eLiterals name="unlocked" value="9" literal="unlocked"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="created_at" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

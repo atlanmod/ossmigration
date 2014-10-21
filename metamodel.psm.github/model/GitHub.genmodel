@@ -103,17 +103,16 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/comments"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/events"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/creator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/elements"/>
     </genClasses>
     <genClasses ecoreClass="GitHub.ecore#//IssueEvent">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//IssueEvent/actor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//IssueEvent/created_at"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//IssueEvent/type"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//IssueEvent/referenced_issue"/>
     </genClasses>
     <genClasses ecoreClass="GitHub.ecore#//IssueComment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//IssueComment/body"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//IssueComment/actor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//IssueComment/created_at"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//IssueComment/creator"/>
     </genClasses>
     <genClasses ecoreClass="GitHub.ecore#//User">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//User/login"/>
@@ -131,6 +130,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//WikiPage/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//WikiPage/is_home"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//WikiPage/body"/>
+    </genClasses>
+    <genClasses ecoreClass="GitHub.ecore#//IssueElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//IssueElement/created_at"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
