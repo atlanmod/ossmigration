@@ -5,18 +5,26 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="license" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stars" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labels" upperBound="-1"
-        eType="#//GoogleProjectLabel" containment="true"/>
+        eType="#//GoogleProjectLabel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
-        eType="#//GoogleUser" containment="true"/>
+        eType="#//GoogleUser"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="issueTracker" eType="#//GoogleIssueTracker"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="wiki" eType="#//GoogleWiki"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="projectLabels" upperBound="-1"
+        eType="#//GoogleProjectLabel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issueLabels" upperBound="-1"
+        eType="#//GoogleIssueLabel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wikiLabels" upperBound="-1"
+        eType="#//GoogleWikiLabel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1"
+        eType="#//GoogleUser" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GoogleUser">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="email" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GoogleIssueTracker">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -28,19 +36,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="reporter" eType="#//GoogleUser"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reporter" eType="#//GoogleUser"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//GoogleUser"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cc" upperBound="-1" eType="#//GoogleUser"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//GoogleUser"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cc" upperBound="-1" eType="#//GoogleUser"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labels" upperBound="-1"
-        eType="#//GoogleIssueLabel" containment="true"/>
+        eType="#//GoogleIssueLabel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blockedOn" upperBound="-1"
-        eType="#//GoogleIssue" containment="true"/>
+        eType="#//GoogleIssue"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blocking" upperBound="-1"
-        eType="#//GoogleIssue" containment="true"/>
+        eType="#//GoogleIssue"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stars" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="comments" upperBound="-1"
         eType="#//GoogleIssueComment" containment="true"/>
@@ -52,14 +57,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="GoogleIssueComment" eSuperTypes="#//GoogleComment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//GoogleUser"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cc" upperBound="-1" eType="#//GoogleUser"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//GoogleUser"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cc" upperBound="-1" eType="#//GoogleUser"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labels" upperBound="-1"
-        eType="#//GoogleIssueLabel" containment="true"/>
+        eType="#//GoogleIssueLabel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blockedOn" upperBound="-1"
-        eType="#//GoogleIssue" containment="true"/>
+        eType="#//GoogleIssue"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GoogleWikiComment" eSuperTypes="#//GoogleComment"/>
   <eClassifiers xsi:type="ecore:EClass" name="GoogleLabel" abstract="true">
@@ -75,8 +78,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="GoogleWikiPage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//GoogleUser"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labels" upperBound="-1"
-        eType="#//GoogleWikiLabel" containment="true"/>
+        eType="#//GoogleWikiLabel"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commitLog" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="comments" upperBound="-1"
         eType="#//GoogleWikiComment" containment="true"/>
