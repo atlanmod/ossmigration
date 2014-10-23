@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gc:GoogleCodeProject
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:gc="http://atlanmod/googlecode"
+    name="Test"
+    license="EPL"
+    description="Just a test">
+  <issueTracker
+      url="issuestracker.com">
+    <issues
+        id="1"
+        date="2014-10-06"
+        summary="First issue"
+        description="This is a test issue"
+        reporter="//@users.0"
+        status="Open"
+        owner="//@users.1"
+        stars="1"/>
+  </issueTracker>
+  <issueLabels
+      name="IssueLabel1"/>
+  <users email="u1@test.com"
+      id="u1"/>
+  <users email="u2@test.com"
+      id="u2"/>
+</gc:GoogleCodeProject>

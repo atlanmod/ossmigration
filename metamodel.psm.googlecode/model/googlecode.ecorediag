@@ -299,13 +299,13 @@
       <layoutConstraint xmi:type="notation:Location" xmi:id="_bv_QcVj4EeSBiPgYVwLmyw" x="-96" y="-8"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_bv_3gFj4EeSBiPgYVwLmyw" type="4012">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_bv_3gVj4EeSBiPgYVwLmyw" x="10" y="10"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_bv_3gVj4EeSBiPgYVwLmyw" x="23" y="-7"/>
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_bv-CUVj4EeSBiPgYVwLmyw" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_bv-CUlj4EeSBiPgYVwLmyw" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="googlecode.ecore#//GoogleCodeProject/labels"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bv-CU1j4EeSBiPgYVwLmyw" points="[0, 0, -505, 68]$[505, -68, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_byoUwVj4EeSBiPgYVwLmyw" id="(0.8986486486486487,0.611764705882353)"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bv-CU1j4EeSBiPgYVwLmyw" points="[7, 8, -188, 19]$[195, 8, 0, 19]$[195, -11, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_byoUwVj4EeSBiPgYVwLmyw" id="(0.9527027027027027,0.8117647058823529)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_byo70Fj4EeSBiPgYVwLmyw" id="(0.33088235294117646,1.0)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_bwAekFj4EeSBiPgYVwLmyw" type="3002" source="_buXf0Fj4EeSBiPgYVwLmyw" target="_bvEDYlj4EeSBiPgYVwLmyw">
@@ -347,7 +347,7 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_bwBsslj4EeSBiPgYVwLmyw" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="googlecode.ecore#//GoogleCodeProject/wiki"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bwBss1j4EeSBiPgYVwLmyw" points="[0, 0, -158, 68]$[158, -68, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_byqxAFj4EeSBiPgYVwLmyw" id="(0.060810810810810814,0.8235294117647058)"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_byqxAFj4EeSBiPgYVwLmyw" id="(0.02702702702702703,0.8352941176470589)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_byrYEFj4EeSBiPgYVwLmyw" id="(0.8823529411764706,0.37209302325581395)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_bwCTwFj4EeSBiPgYVwLmyw" type="3002" source="_buXf0Fj4EeSBiPgYVwLmyw" target="_bvQQolj4EeSBiPgYVwLmyw">
@@ -593,7 +593,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_bwOhBVj4EeSBiPgYVwLmyw" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_bwOhBlj4EeSBiPgYVwLmyw" fontName="Segoe UI"/>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bwOhB1j4EeSBiPgYVwLmyw" points="[0, 0, 157, 512]$[0, -30, 157, 482]$[-81, -30, 76, 482]$[-81, -482, 76, 30]$[-157, -482, 0, 30]$[-157, -512, 0, 0]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bwOhB1j4EeSBiPgYVwLmyw" points="[67, 20, -50, 406]$[83, 20, -34, 406]$[83, -310, -34, 76]$[62, -310, -55, 76]$[62, -386, -55, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_by6BkFj4EeSBiPgYVwLmyw" id="(0.5,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_by6BkVj4EeSBiPgYVwLmyw" id="(0.7478260869565218,1.0)"/>
   </edges>

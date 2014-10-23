@@ -2,6 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="googlecode" nsURI="http://atlanmod/googlecode" nsPrefix="gc">
   <eClassifiers xsi:type="ecore:EClass" name="GoogleCodeProject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="license" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stars" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labels" upperBound="-1"
@@ -28,8 +29,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GoogleIssueTracker">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="issues" eType="#//GoogleIssue"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issues" upperBound="-1"
+        eType="#//GoogleIssue" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GoogleIssue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
