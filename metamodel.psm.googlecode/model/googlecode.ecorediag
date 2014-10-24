@@ -267,6 +267,10 @@
         <element xmi:type="ecore:EAttribute" href="googlecode.ecore#//GoogleWikiPage/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_bvVwMVj4EeSBiPgYVwLmyw"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_ak_QMFtZEeSUQdrkUnr1KQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="googlecode.ecore#//GoogleWikiPage/summary"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ak_QMVtZEeSUQdrkUnr1KQ"/>
+      </children>
       <children xmi:type="notation:Node" xmi:id="_bvVwMlj4EeSBiPgYVwLmyw" type="2001">
         <element xmi:type="ecore:EAttribute" href="googlecode.ecore#//GoogleWikiPage/content"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_bvVwM1j4EeSBiPgYVwLmyw"/>

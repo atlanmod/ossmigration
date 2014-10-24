@@ -73,8 +73,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="GoogleIssueLabel" eSuperTypes="#//GoogleLabel"/>
   <eClassifiers xsi:type="ecore:EClass" name="GoogleWikiLabel" eSuperTypes="#//GoogleLabel"/>
   <eClassifiers xsi:type="ecore:EClass" name="GoogleWiki">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pages" eType="#//GoogleWikiPage"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pages" upperBound="-1"
+        eType="#//GoogleWikiPage" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GoogleWikiPage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -86,5 +86,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="comments" upperBound="-1"
         eType="#//GoogleWikiComment" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="updated_at" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

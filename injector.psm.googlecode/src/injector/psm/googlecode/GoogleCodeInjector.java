@@ -6,6 +6,9 @@ import googlecode.GoogleIssueComment;
 import googlecode.GoogleIssueLabel;
 import googlecode.GoogleIssueTracker;
 import googlecode.GoogleUser;
+import googlecode.GoogleWiki;
+import googlecode.GoogleWikiLabel;
+import googlecode.GoogleWikiPage;
 import googlecode.GooglecodeFactory;
 import googlecode.GooglecodePackage;
 
@@ -28,14 +31,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 public class GoogleCodeInjector {
-	public static final int MAX_ELEMS = 50;
+	public static final int MAX_ELEMS = 10;
 	public static final String OUTPUT = "result.xmi";
-	
-	HashMap<String, GoogleIssue> issues = new HashMap<String, GoogleIssue>();
+
 	HashMap<String, GoogleUser> users = new HashMap<String, GoogleUser>();
+	HashMap<String, GoogleIssue> issues = new HashMap<String, GoogleIssue>();
 	HashMap<String, GoogleIssueLabel> issueLabels = new HashMap<String, GoogleIssueLabel>();
-	
-	
+	HashMap<String, GoogleWikiPage> wikipages = new HashMap<String, GoogleWikiPage>();
+	HashMap<String, GoogleWikiLabel> wikiLabels = new HashMap<String, GoogleWikiLabel>();
 	
 	public static void main(String[] args) {
         GoogleCodeInjector injector = new GoogleCodeInjector();
@@ -81,21 +84,32 @@ public class GoogleCodeInjector {
 		return issueLabel;
 	}
 	
+	public GoogleWikiLabel getWikiLabel(String id) {
+		GoogleWikiLabel wikiLabel = wikiLabels.get(id);
+		if(wikiLabel == null) {
+			wikiLabel = GooglecodeFactory.eINSTANCE.createGoogleWikiLabel();
+			wikiLabel.setName(id);
+			wikiLabels.put(id, wikiLabel);
+		}
+		return wikiLabel;
+	}
+	
 	public void inject(String url) {
 		GoogleCodeProject project = injectProject(url);
 		
         injectIssues(url);
-        System.out.println("Issues found: " + issues.keySet().size());
-        project.getIssueTracker().getIssues().addAll(issues.values());
+        injectWikiPages(url);
         
+        System.out.println("Wiki pages found: " + wikipages.keySet().size());
+        System.out.println("Issues found: " + issues.keySet().size());
+        
+        project.getIssueTracker().getIssues().addAll(issues.values());
         project.getIssueLabels().addAll(issueLabels.values());
+        project.getWiki().getPages().addAll(wikipages.values());
+        project.getWikiLabels().addAll(wikiLabels.values());
         project.getUsers().addAll(users.values());
-
-        /*List<WebElement> wikipages = getWikiPages(url);
-        System.out.print("Wiki pages found: " + wikipages.size());*/
         
         save(OUTPUT, project);
-
     }
 	
 	
@@ -118,6 +132,9 @@ public class GoogleCodeInjector {
         GoogleIssueTracker issueTracker = GooglecodeFactory.eINSTANCE.createGoogleIssueTracker();
         issueTracker.setUrl(projectURL + "/issues");
         project.setIssueTracker(issueTracker);
+        
+        GoogleWiki wiki = GooglecodeFactory.eINSTANCE.createGoogleWiki();
+        project.setWiki(wiki);
         
         return project;   
 				
@@ -249,17 +266,64 @@ public class GoogleCodeInjector {
     	return googleIssue;    	
     }
 
-    public List<WebElement> injectWikiPages(String projectURL) {
+    public void injectWikiPages(String projectURL) {
         WebDriver driver = getDriver();
 
         // TODO the URL param sets the limit to 1000, check if there are more!
         String issuesURL = projectURL + "/w/list?num=1000&start=0";
         driver.get(issuesURL);
-        List<WebElement> wikipages = driver.findElements(By.className("ifOpened"));
-
-        return wikipages;
+        List<WebElement> wikipagesElement = driver.findElements(By.className("ifOpened"));
+        
+        int counter = 0;
+        for(WebElement wikipageElement : wikipagesElement) {
+        	String wikipageURL = wikipageElement.findElement(By.className("col_0")).findElement(By.tagName("a")).getAttribute("href");
+        	GoogleWikiPage wikipage = injectWikiPage(wikipageURL);
+        	wikipages.put(wikipage.getName(), wikipage);
+        	if(counter++ > MAX_ELEMS) 
+        		break;
+        	
+        }
     }
     
+    public GoogleWikiPage injectWikiPage(String url) {
+    	GoogleWikiPage wikipage = GooglecodeFactory.eINSTANCE.createGoogleWikiPage();
+    	
+    	WebDriver driver = getDriver();
+    	driver.get(url);
+    	
+    	// Info from the header
+    	WebElement headerElement = driver.findElement(By.id("wikiheader"));
+    	
+    	WebElement nameElement = headerElement.findElement(By.tagName("span"));
+    	String name = nameElement.getText();
+    	wikipage.setName(name);
+    	
+    	WebElement summaryElement = headerElement.findElement(By.tagName("i"));
+    	String summary = summaryElement.getText();
+    	wikipage.setSummary(summary);
+    	
+    	WebElement authorElement = headerElement.findElement(By.id("wikiauthor"));
+    	
+    	WebElement dateElement = authorElement.findElement(By.tagName("span"));
+    	wikipage.setUpdated_at(dateElement.getText());
+    	
+    	WebElement userLinkElement = authorElement.findElement(By.className("userlink"));
+    	GoogleUser user = getUser(userLinkElement.getText());
+    	wikipage.setOwner(user);
+    	
+    	List<WebElement> labelElements = headerElement.findElements(By.className("label"));
+    	for(WebElement labelElement : labelElements) {
+    		String label = labelElement.getText();
+    		GoogleWikiLabel wikiLabel = getWikiLabel(label);
+    		wikipage.getLabels().add(wikiLabel);
+    	}
+    	
+    	// Info from the content
+    	WebElement contentElement = driver.findElement(By.id("wikicontent"));
+    	wikipage.setContent(contentElement.getText());
+    	
+    	return wikipage;
+    }
 
 	public void save(String pathName, GoogleCodeProject project) {
 		ResourceSet rset = new ResourceSetImpl();
