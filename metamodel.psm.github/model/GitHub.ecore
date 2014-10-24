@@ -142,7 +142,7 @@
     <eLiterals name="locked" value="8" literal="locked"/>
     <eLiterals name="unlocked" value="9" literal="unlocked"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IssueElement">
+  <eClassifiers xsi:type="ecore:EClass" name="IssueElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="created_at" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

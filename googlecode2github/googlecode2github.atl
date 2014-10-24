@@ -1,0 +1,121 @@
+-- @path GH=/metamodel.psm.github/model/GitHub.ecore
+-- @path GC=/metamodel.psm.googlecode/model/googlecode.ecore
+
+module googlecode2github;
+create OUT : GH from IN : GC;
+
+rule CodeProject2Repository {
+	from
+		s: GC!GoogleCodeProject
+	to
+		t: GH!Repository (
+			name <- s.name,
+			description <- s.summary,
+			--homepage <- s.url,
+			wiki <- s.wiki,
+			users <- s.users,
+			labels <- s.projectLabels->union(s.issueLabels),
+			issues <- 
+						if not s.issueTracker.oclIsUndefined() then
+							s.issueTracker.issues
+						else
+							Sequence{}
+						endif
+		)
+}
+
+
+rule GoogleIssue2Issue {
+	from
+		s: GC!GoogleIssue
+	to
+		t: GH!Issue (
+			title <- s.summary,
+			body <- s.description + '\n relevance: ' + s.stars.toString(),
+			creator <- s.owner,
+			labels <- s.labels,
+			created_at <- s.date,
+			--state <- 
+			elements <- s.cc->collect(c | thisModule.GoogleIssue2IssueEvent(c))
+							->union(s.comments)
+		)
+}
+
+
+lazy rule GoogleIssue2IssueEvent {
+	from
+		s: GC!GoogleUser
+	to
+		t: GH!IssueEvent (
+			actor <- s,
+			type <- #mentioned
+		)
+}
+
+
+rule GoogleIssueComment2IssueComment {
+	from
+		s: GC!GoogleIssueComment
+	to
+		t: GH!IssueComment (
+			body <- 
+					if s.status.oclIsUndefined() then
+						'summary: ' + s.summary + '\n' + s.text + '\n'
+					else
+						'summary: ' + s.summary + '\n' + s.text + '\n status ' + s.status
+					endif,
+			creator <- s.owner,
+			created_at <- s.date
+		)
+}
+
+
+rule GoogleUser2User {
+	from
+		s: GC!GoogleUser
+	to
+		t: GH!User (
+			login <- s.email	
+		)
+}
+
+rule GoogleLabel2Label {
+	from
+		s: GC!GoogleLabel (s.oclIsTypeOf(GC!GoogleIssueLabel) or s.oclIsTypeOf(GC!GoogleProjectLabel))
+	to
+		t: GH!Label (
+			name <- s.name
+		)
+}
+
+helper context GC!GoogleWiki def: getProjectDescription: String =
+	let project : GC!GoogleCodeProject = self.refImmediateComposite() in
+	project.description + '\n license' + project.license;
+
+rule GoogleWiki2Wiki {
+	from
+		s: GC!GoogleWiki
+	to
+		t: GH!Wiki (
+			pages <- s.pages->prepend(home)	
+		),
+		home : GH!WikiPage (
+			is_home <- true,
+			name <- 'Project Description',
+			body <- s.getProjectDescription
+		)
+}
+
+rule GoogleWikiPage2WikiPage {
+	from
+		s: GC!GoogleWikiPage
+	to
+		t: GH!WikiPage (
+			name <- s.name,
+			is_home <- false,
+			body <- 'summary: ' + s.summary + '\n' +
+					s.content + 
+					'\n owner: ' + s.owner.email + 
+					'\n last update: ' + s.updated_at
+		)
+}

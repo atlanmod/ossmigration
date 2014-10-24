@@ -131,7 +131,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//WikiPage/is_home"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//WikiPage/body"/>
     </genClasses>
-    <genClasses ecoreClass="GitHub.ecore#//IssueElement">
+    <genClasses image="false" ecoreClass="GitHub.ecore#//IssueElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//IssueElement/created_at"/>
     </genClasses>
   </genPackages>
