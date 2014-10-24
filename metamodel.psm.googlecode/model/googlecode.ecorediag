@@ -7,6 +7,10 @@
         <element xmi:type="ecore:EAttribute" href="googlecode.ecore#//GoogleCodeProject/license"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_bvC1QVj4EeSBiPgYVwLmyw"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_uYJxUFtcEeSUQdrkUnr1KQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="googlecode.ecore#//GoogleCodeProject/summary"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_uYJxUVtcEeSUQdrkUnr1KQ"/>
+      </children>
       <children xmi:type="notation:Node" xmi:id="_bvDcUFj4EeSBiPgYVwLmyw" type="2001">
         <element xmi:type="ecore:EAttribute" href="googlecode.ecore#//GoogleCodeProject/stars"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_bvDcUVj4EeSBiPgYVwLmyw"/>
@@ -14,6 +18,10 @@
       <children xmi:type="notation:Node" xmi:id="_bvEDYFj4EeSBiPgYVwLmyw" type="2001">
         <element xmi:type="ecore:EAttribute" href="googlecode.ecore#//GoogleCodeProject/description"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_bvEDYVj4EeSBiPgYVwLmyw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_tRPzoFtcEeSUQdrkUnr1KQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="googlecode.ecore#//GoogleCodeProject/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_tRPzoVtcEeSUQdrkUnr1KQ"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_buZ8EVj4EeSBiPgYVwLmyw"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_buZ8Elj4EeSBiPgYVwLmyw"/>
@@ -351,7 +359,7 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_bwBsslj4EeSBiPgYVwLmyw" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="googlecode.ecore#//GoogleCodeProject/wiki"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bwBss1j4EeSBiPgYVwLmyw" points="[0, 0, -158, 68]$[158, -68, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_byqxAFj4EeSBiPgYVwLmyw" id="(0.02702702702702703,0.8352941176470589)"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_byqxAFj4EeSBiPgYVwLmyw" id="(0.0,0.6638655462184874)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_byrYEFj4EeSBiPgYVwLmyw" id="(0.8823529411764706,0.37209302325581395)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_bwCTwFj4EeSBiPgYVwLmyw" type="3002" source="_buXf0Fj4EeSBiPgYVwLmyw" target="_bvQQolj4EeSBiPgYVwLmyw">
@@ -656,7 +664,7 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_bwQ9Rlj4EeSBiPgYVwLmyw" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="googlecode.ecore#//GoogleWikiPage/labels"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bwQ9R1j4EeSBiPgYVwLmyw" points="[38, 7, -222, -44]$[232, 45, -28, -6]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_byys0Fj4EeSBiPgYVwLmyw" id="(0.9391891891891891,0.35294117647058826)"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_byys0Fj4EeSBiPgYVwLmyw" id="(0.9391891891891891,0.2773109243697479)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_byys0Vj4EeSBiPgYVwLmyw" id="(0.025,0.4883720930232558)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_bwRkVFj4EeSBiPgYVwLmyw" type="3002" source="_bvUiFFj4EeSBiPgYVwLmyw" target="_bvN0Ylj4EeSBiPgYVwLmyw">

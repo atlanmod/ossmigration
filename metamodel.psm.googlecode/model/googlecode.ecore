@@ -22,6 +22,7 @@
         eType="#//GoogleWikiLabel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1"
         eType="#//GoogleUser" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GoogleUser">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="email" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

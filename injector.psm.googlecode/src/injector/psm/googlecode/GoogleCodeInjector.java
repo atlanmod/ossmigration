@@ -5,6 +5,7 @@ import googlecode.GoogleIssue;
 import googlecode.GoogleIssueComment;
 import googlecode.GoogleIssueLabel;
 import googlecode.GoogleIssueTracker;
+import googlecode.GoogleProjectLabel;
 import googlecode.GoogleUser;
 import googlecode.GoogleWiki;
 import googlecode.GoogleWikiLabel;
@@ -31,13 +32,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 public class GoogleCodeInjector {
-	public static final int MAX_ELEMS = 10;
+	public static final int MAX_ELEMS = 1;
 	public static final String OUTPUT = "result.xmi";
 
 	HashMap<String, GoogleUser> users = new HashMap<String, GoogleUser>();
+	
 	HashMap<String, GoogleIssue> issues = new HashMap<String, GoogleIssue>();
-	HashMap<String, GoogleIssueLabel> issueLabels = new HashMap<String, GoogleIssueLabel>();
 	HashMap<String, GoogleWikiPage> wikipages = new HashMap<String, GoogleWikiPage>();
+	
+	HashMap<String, GoogleProjectLabel> projectLabels = new HashMap<String, GoogleProjectLabel>();
+	HashMap<String, GoogleIssueLabel> issueLabels = new HashMap<String, GoogleIssueLabel>();
 	HashMap<String, GoogleWikiLabel> wikiLabels = new HashMap<String, GoogleWikiLabel>();
 	
 	public static void main(String[] args) {
@@ -73,6 +77,16 @@ public class GoogleCodeInjector {
 		}
 		return issue;
 	}
+
+	public GoogleProjectLabel getProjectLabel(String id) {
+		GoogleProjectLabel projectLabel = projectLabels.get(id);
+		if(projectLabel == null) {
+			projectLabel = GooglecodeFactory.eINSTANCE.createGoogleProjectLabel();
+			projectLabel.setName(id);
+			projectLabels.put(id, projectLabel);
+		}
+		return projectLabel;
+	}
 	
 	public GoogleIssueLabel getIssueLabel(String id) {
 		GoogleIssueLabel issueLabel = issueLabels.get(id);
@@ -107,6 +121,7 @@ public class GoogleCodeInjector {
         project.getIssueLabels().addAll(issueLabels.values());
         project.getWiki().getPages().addAll(wikipages.values());
         project.getWikiLabels().addAll(wikiLabels.values());
+        project.getProjectLabels().addAll(projectLabels.values());
         project.getUsers().addAll(users.values());
         
         save(OUTPUT, project);
@@ -118,9 +133,25 @@ public class GoogleCodeInjector {
 
         WebDriver driver = getDriver();
         driver.get(projectURL);
-        WebElement nameElement = driver.findElement(By.id("pname"));
+        
+        // Info from the header
+        WebElement headerElement = driver.findElement(By.className("headbg"));
+        
+        WebElement nameElement = headerElement.findElement(By.id("pname"));
         String name = nameElement.getText();
         project.setName(name);
+        
+        WebElement summaryElement = headerElement.findElement(By.id("project_summary_link"));
+        String summary = summaryElement.getText();
+        project.setSummary(summary);
+        
+        // Info from left column
+        WebElement leftElement = driver.findElement(By.className("pscolumnl"));
+        
+        // TODO fix this
+        /*WebElement starElement = leftElement.findElement(By.id("star_count"));
+        int stars = Integer.valueOf(starElement.getText());
+        project.setStars(stars);*/
         
         List<WebElement> psmetaElements = driver.findElements(By.className("psmeta"));
         if(psmetaElements.size() > 2) { 
@@ -129,6 +160,28 @@ public class GoogleCodeInjector {
         	project.setLicense(license);
         }
         
+        WebElement projectLabelsElement = leftElement.findElement(By.id("project_labels"));
+        List<WebElement> labelElements = projectLabelsElement.findElements(By.className("label"));
+        for(WebElement labelElement : labelElements) {
+        	String labelName = labelElement.getText();
+        	GoogleProjectLabel projectLabel = getProjectLabel(labelName);
+        	project.getLabels().add(projectLabel);
+        }
+        
+        List<WebElement> userElements = leftElement.findElements(By.className("userlink"));
+        for(WebElement userElement : userElements) {
+        	String username = userElement.getText();
+        	GoogleUser user = getUser(username);
+        	project.getMembers().add(user); 
+        }
+        		
+        
+        // Info from the main column (right)
+        WebElement rightElement = driver.findElement(By.id("wikicontent"));
+        String description = rightElement.getText();
+        project.setDescription(description);
+        
+        // The rest        
         GoogleIssueTracker issueTracker = GooglecodeFactory.eINSTANCE.createGoogleIssueTracker();
         issueTracker.setUrl(projectURL + "/issues");
         project.setIssueTracker(issueTracker);
@@ -156,7 +209,7 @@ public class GoogleCodeInjector {
         	String href = aIssue.getAttribute("href");
         	GoogleIssue googleIssue = injectIssue(href);
         	issues.put(googleIssue.getId(), googleIssue);
-        	if(counter++ > MAX_ELEMS) 
+        	if(++counter >= MAX_ELEMS) 
         		break;
         }
     }
@@ -261,8 +314,6 @@ public class GoogleCodeInjector {
     		googleIssue.getComments().add(comment);
     	}
     	
-    	System.out.println(id + ": " + summary);;
-    	
     	return googleIssue;    	
     }
 
@@ -279,7 +330,7 @@ public class GoogleCodeInjector {
         	String wikipageURL = wikipageElement.findElement(By.className("col_0")).findElement(By.tagName("a")).getAttribute("href");
         	GoogleWikiPage wikipage = injectWikiPage(wikipageURL);
         	wikipages.put(wikipage.getName(), wikipage);
-        	if(counter++ > MAX_ELEMS) 
+        	if(++counter >= MAX_ELEMS) 
         		break;
         	
         }
