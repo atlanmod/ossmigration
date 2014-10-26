@@ -81,14 +81,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="labels" upperBound="-1"
         eType="#//Label"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="milestone" eType="#//Milestone"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="comments" upperBound="-1"
-        eType="#//IssueComment" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
-        eType="#//IssueEvent" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="creator" lowerBound="1"
         eType="#//User"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//IssueElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
+        eType="#//IssueEvent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comments" upperBound="-1"
+        eType="#//IssueComment" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IssueEvent" eSuperTypes="#//IssueElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//User"/>
