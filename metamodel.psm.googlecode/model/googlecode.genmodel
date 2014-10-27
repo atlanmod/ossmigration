@@ -2,29 +2,79 @@
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/metamodel.psm.googlecode/src" modelPluginID="metamodel.psm.googlecode"
     modelName="Googlecode" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
-  <foreignModel>../../ossmigrator.metamodel.googlecode/model/googlecode.ecore</foreignModel>
+  <foreignModel>googlecode.ecore</foreignModel>
   <genPackages prefix="Googlecode" disposableProviderFactory="true" ecorePackage="googlecode.ecore#/">
+    <genClasses ecoreClass="googlecode.ecore#//GoogleCodeProject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleCodeProject/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleCodeProject/license"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleCodeProject/stars"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleCodeProject/labels"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleCodeProject/members"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleCodeProject/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleCodeProject/issueTracker"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleCodeProject/wiki"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleCodeProject/projectLabels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleCodeProject/issueLabels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleCodeProject/wikiLabels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleCodeProject/users"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleCodeProject/summary"/>
+    </genClasses>
+    <genClasses ecoreClass="googlecode.ecore#//GoogleUser">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleUser/email"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleUser/id"/>
+    </genClasses>
     <genClasses ecoreClass="googlecode.ecore#//GoogleIssueTracker">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssueTracker/url"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleIssueTracker/issues"/>
     </genClasses>
     <genClasses ecoreClass="googlecode.ecore#//GoogleIssue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssue/created_at"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssue/updated_at"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssue/priority"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssue/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssue/component"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssue/status"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssue/stars"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssue/summary"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleIssue/comments"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssue/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssue/date"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssue/summary"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssue/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleIssue/reporter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssue/status"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleIssue/owner"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleIssue/cc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleIssue/labels"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleIssue/blockedOn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleIssue/blocking"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssue/stars"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleIssue/comments"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="googlecode.ecore#//GoogleComment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleComment/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleComment/date"/>
     </genClasses>
     <genClasses ecoreClass="googlecode.ecore#//GoogleIssueComment">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssueComment/text"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssueComment/date"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssueComment/summary"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleIssueComment/status"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleIssueComment/owner"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleIssueComment/cc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleIssueComment/labels"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleIssueComment/blockedOn"/>
+    </genClasses>
+    <genClasses ecoreClass="googlecode.ecore#//GoogleWikiComment"/>
+    <genClasses image="false" ecoreClass="googlecode.ecore#//GoogleLabel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleLabel/name"/>
+    </genClasses>
+    <genClasses ecoreClass="googlecode.ecore#//GoogleProjectLabel"/>
+    <genClasses ecoreClass="googlecode.ecore#//GoogleIssueLabel"/>
+    <genClasses ecoreClass="googlecode.ecore#//GoogleWikiLabel"/>
+    <genClasses ecoreClass="googlecode.ecore#//GoogleWiki">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleWiki/pages"/>
+    </genClasses>
+    <genClasses ecoreClass="googlecode.ecore#//GoogleWikiPage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleWikiPage/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleWikiPage/content"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleWikiPage/owner"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleWikiPage/labels"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleWikiPage/commitLog"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleWikiPage/comments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleWikiPage/updated_at"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleWikiPage/summary"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

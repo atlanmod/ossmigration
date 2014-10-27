@@ -215,10 +215,6 @@
         <element xmi:type="ecore:EAttribute" href="GitHub.ecore#//Release/download_count"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_3hSggVhxEeSCPrqYIdy_3w"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_3hSgglhxEeSCPrqYIdy_3w" type="2001">
-        <element xmi:type="ecore:EAttribute" href="GitHub.ecore#//Release/content_type"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_3hSgg1hxEeSCPrqYIdy_3w"/>
-      </children>
       <children xmi:type="notation:Node" xmi:id="_3hSghFhxEeSCPrqYIdy_3w" type="2001">
         <element xmi:type="ecore:EAttribute" href="GitHub.ecore#//Release/_id"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_3hSghVhxEeSCPrqYIdy_3w"/>
