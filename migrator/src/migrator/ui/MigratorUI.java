@@ -195,6 +195,9 @@ public class MigratorUI extends JFrame implements ActionListener  {
 				password = this.gitHubPassword.getText();
 				m.migrate(replace, googleProject, login, password);
 			}
+    		
+    		this.setVisible(false);
+    		this.dispose();
     	}
     	else if (e.getActionCommand().equals(POSITIVE_DECISION)) {
     		this.current_decision = true;
