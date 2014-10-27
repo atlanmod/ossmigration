@@ -9,18 +9,19 @@ import java.util.LinkedList;
 
 import javax.swing.*;
 
-import migrator.logic.Migrator;
+import migrator.Migrator;
 
 public class MigratorUI extends JFrame implements ActionListener  {
 
-    private JLabel urlGoogleProjectLabel, gitHubCredentialsLabel, gitHubLoginLabel, gitHubPasswordLabel, gitHubTokensLabel;
     private JTextField urlGoogleProject, gitHubLogin;
     private JTextArea gitHubTokens;
     private JPasswordField gitHubPassword;
     private JComboBox gitHubCredentialType;
     private Migrator migrator;
     
-    private JPanel googleCode2GitHubPanel, loginPasswordPanel, tokensPanel, addRemoveTokens, selectTokens, selectedCredentialsPanel;
+    private JPanel googleCode2GitHubPanel, loginPasswordPanel, 
+				   tokensPanel, addRemoveTokens, selectTokens, selectedCredentialsPanel, 
+				   replaceGitHubRepositorySelectionPanel, decisionPanel;
     
     private final String URL_GOOGLE_PROJECT = "URL Google Project";
     private final String GITHUB_CREDENTIALS = "GitHub credentials";
@@ -29,7 +30,12 @@ public class MigratorUI extends JFrame implements ActionListener  {
     private final String LOGINPASSWORDGITHUB = LOGIN + "/" + PASSWORD;
     private final String GITHUBTOKENS = "tokens";
     private final String MIGRATE = "Migrate";
+    private final String POSITIVE_DECISION = "yes";
+    private final String NEGATIVE_DECISION = "no";
+    private final String REPLACE = "Replace GitHub repository if exists?";
     private final int DEFAULT_SELECTED_GITHUB_CREDENTIALS_TYPE = 0;
+    private final boolean DEFAULT_REPLACE_DECISION = false;
+    private boolean current_decision = DEFAULT_REPLACE_DECISION;
     
     JButton buttonMigrate;
 
@@ -55,12 +61,16 @@ public class MigratorUI extends JFrame implements ActionListener  {
 	    	this.selectedCredentialsPanel = tokensPanel;
 	    }
         
+        replaceGitHubRepositorySelectionPanel = new JPanel();
+        initReplaceGitHubRepositorySelectionPanel();
+        
         
         buttonMigrate = new JButton(MIGRATE);
         
         
         add(googleCode2GitHubPanel);
         add(selectedCredentialsPanel);
+        add(replaceGitHubRepositorySelectionPanel);
         add(buttonMigrate);
 
         buttonMigrate.addActionListener(this);
@@ -70,10 +80,10 @@ public class MigratorUI extends JFrame implements ActionListener  {
     public void initGoogleCode2GitHubPanel(int indexSelectedGitHubCredentials) {
     	googleCode2GitHubPanel.setLayout(new GridLayout(0, 2));
         
-        urlGoogleProjectLabel = new JLabel(URL_GOOGLE_PROJECT, SwingConstants.LEFT);
+        JLabel urlGoogleProjectLabel = new JLabel(URL_GOOGLE_PROJECT, SwingConstants.LEFT);
         urlGoogleProject = new JTextField(20);
         
-        gitHubCredentialsLabel = new JLabel(GITHUB_CREDENTIALS, SwingConstants.LEFT);
+        JLabel gitHubCredentialsLabel = new JLabel(GITHUB_CREDENTIALS, SwingConstants.LEFT);
         gitHubCredentialType = new JComboBox(new String[]{LOGINPASSWORDGITHUB, GITHUBTOKENS});
         gitHubCredentialType.setSelectedIndex(indexSelectedGitHubCredentials);
         gitHubCredentialType.addActionListener(this);
@@ -87,12 +97,56 @@ public class MigratorUI extends JFrame implements ActionListener  {
     }
     
     
+    public void initReplaceGitHubRepositorySelectionPanel() {
+    	replaceGitHubRepositorySelectionPanel.setLayout(new GridLayout(0, 2));
+    	
+    	JLabel replaceGitHubRepositoryLabel = new JLabel(REPLACE);
+    	 
+    	
+    	decisionPanel = new JPanel();
+    	initDecisionPanel();
+    	
+        
+        replaceGitHubRepositorySelectionPanel.add(replaceGitHubRepositoryLabel);
+        replaceGitHubRepositorySelectionPanel.add(decisionPanel);
+        
+        replaceGitHubRepositorySelectionPanel.setVisible(true);
+    	
+    }
+    
+    
+    public void initDecisionPanel() {
+    	//Create the radio buttons.
+        JRadioButton positiveDecision = new JRadioButton(POSITIVE_DECISION);
+        positiveDecision.setActionCommand(POSITIVE_DECISION);
+        positiveDecision.setSelected(DEFAULT_REPLACE_DECISION);
+
+        JRadioButton negativeDecision = new JRadioButton(NEGATIVE_DECISION);
+        negativeDecision.setActionCommand(POSITIVE_DECISION);
+        negativeDecision.setSelected(!DEFAULT_REPLACE_DECISION);
+
+        //Group the radio buttons.
+        ButtonGroup group = new ButtonGroup();
+        group.add(positiveDecision);
+        group.add(negativeDecision);
+
+        //Register a listener for the radio buttons.
+        positiveDecision.addActionListener(this);
+        negativeDecision.addActionListener(this);
+        
+        decisionPanel.add(positiveDecision);
+        decisionPanel.add(negativeDecision);
+        
+        decisionPanel.setVisible(true);
+    }
+    
+    
     public void initLoginPasswordPanel() {
     	this.loginPasswordPanel.setLayout(new GridLayout(0, 2));
     	
-    	gitHubLoginLabel = new JLabel(LOGIN);
+    	JLabel gitHubLoginLabel = new JLabel(LOGIN);
     	gitHubLogin = new JTextField(15);
-    	gitHubPasswordLabel = new JLabel(PASSWORD);
+    	JLabel gitHubPasswordLabel = new JLabel(PASSWORD);
     	gitHubPassword = new JPasswordField(15);
     	
     	this.loginPasswordPanel.add(gitHubLoginLabel);
@@ -108,7 +162,7 @@ public class MigratorUI extends JFrame implements ActionListener  {
     public void initTokensPanel() {
     	this.tokensPanel.setLayout(new GridLayout(0, 2));
     	
-    	gitHubTokensLabel = new JLabel(GITHUBTOKENS);
+    	JLabel gitHubTokensLabel = new JLabel(GITHUBTOKENS);
     	
     	gitHubTokens = new JTextArea();
     	gitHubTokens.setText("token-1, token-2, ...");
@@ -129,22 +183,24 @@ public class MigratorUI extends JFrame implements ActionListener  {
     		String selected = (String)this.gitHubCredentialType.getSelectedItem();
     		String googleProject = urlGoogleProject.getText();
     		String tokens, login, password;
-    		
+    		boolean replace = current_decision;
+    		   		
     		if (selected.equals(GITHUBTOKENS)) {
     			tokens = this.gitHubTokens.getText();
     			
-    			List<String> strippedTokens = new LinkedList<String>();
-    			for (String t: tokens.split(",")) {
-    				strippedTokens.add(t.trim());
-    			}
-    			
-    			m.migrate(googleProject, strippedTokens);
+    			m.migrate(replace, googleProject, tokens.split(","));
     		}
 			else {
 				login = this.gitHubLogin.getText();
 				password = this.gitHubPassword.getText();
-				m.migrate(googleProject, login, password);
+				m.migrate(replace, googleProject, login, password);
 			}
+    	}
+    	else if (e.getActionCommand().equals(POSITIVE_DECISION)) {
+    		this.current_decision = true;
+    	}
+    	else if (e.getActionCommand().equals(NEGATIVE_DECISION)) {
+    		this.current_decision = false;
     	}
     	else {
     		String selected = (String)this.gitHubCredentialType.getSelectedItem();
@@ -166,6 +222,13 @@ public class MigratorUI extends JFrame implements ActionListener  {
         gui.setSize(500, 200);
         gui.setTitle("OSS Migrator");
         gui.setVisible(true);
+        
+        /* test parameters: 
+         * url: https://code.google.com/p/guava-libraries
+         * login: migrator
+         * password: ihategooglescholar
+         * 
+         * */
 
     }
 
