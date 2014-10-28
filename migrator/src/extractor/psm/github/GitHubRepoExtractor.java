@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Random;
 
 
+
+
 import org.eclipse.egit.github.core.Issue;
 import org.eclipse.egit.github.core.Label;
 import org.eclipse.egit.github.core.Repository;
@@ -22,6 +24,7 @@ import org.eclipse.egit.github.core.service.OAuthService;
 import org.eclipse.egit.github.core.service.RepositoryService;
 import org.eclipse.egit.github.core.service.UserService;
 import org.eclipse.egit.github.core.client.IGitHubConstants;
+import org.openqa.selenium.NotFoundException;
 
 public class GitHubRepoExtractor {
 	
@@ -43,6 +46,8 @@ public class GitHubRepoExtractor {
 	private EventService eservice;
 	private OAuthService oservice;
 	
+	private static final String GITHUB_WEBSITE = "https://github.com/";
+	
 	//repository information
 	private RepositoryId repoId; 
 	private Repository repo;
@@ -53,61 +58,121 @@ public class GitHubRepoExtractor {
 	private int milestoneCounter = 1;
 	
 	
-	public void extract(boolean replaceIfExist, String githubModelPath, String login, String password) {
-		this.querier = new GitHubModelQuerier(githubModelPath);	
-		this.login = login;
-		init(login, password);
-		
-		if(!repoAlreadyExists())
-			this.createRepo();
-		else if(repoAlreadyExists() && replaceIfExist) { 
-			this.deleteRepo();
-			this.createRepo();
+	public String getRepoURL() {
+		return GITHUB_WEBSITE + "/" + this.repoId.getOwner() + "/" + this.repoId.getName();
+	}
+	
+	
+	public String getCurrentToken() {
+		return this.current_token;
+	}
+	
+	
+	public void initQuerier(String githubModelPath) throws IOException {
+		if (this.querier == null)
+			this.querier = new GitHubModelQuerier(githubModelPath);	
+	}
+	
+	
+	public void startRepoExtraction(boolean replaceIfExist, String gitHubProjectName) {
+		if(!repoAlreadyExists()) {
+			if (!gitHubProjectName.equals(""))
+				this.createRepo(gitHubProjectName);
+			else
+				this.createRepo("");
 		}
 		else {
-			System.out.println("repo already exists!");
+			if (replaceIfExist) {
+				try {
+					this.deleteRepo();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				this.createRepo(gitHubProjectName);
+			}
+			else {
+				System.out.println("repo cannot be created!");
+			}	
 		}
 	}
 	
-	public void extract(boolean replaceIfExist, String githubModelPath, String... tokens) {
-		this.querier = new GitHubModelQuerier(githubModelPath);	
+	
+	public void initRepoId(String login, String gitHubProjectName) {
+		if (gitHubProjectName.equals("")) {
+			try {
+				rservice.getRepository(this.login, querier.getRepository().getName());
+				this.repoId = new RepositoryId(this.login, querier.getRepository().getName());
+			}
+			catch (IOException e) {
+				this.repoId = null;
+			}
+		}
+		else {
+			try {
+				rservice.getRepository(this.login, gitHubProjectName);
+				this.repoId = new RepositoryId(this.login, gitHubProjectName);
+			}
+			catch (IOException e) {
+				this.repoId = null;
+			}	
+		}
+	}
+	
+	
+	public void extractRepo(boolean replaceIfExist, String gitHubProjectName, String githubModelPath, String login, String password) throws IOException {
+		initQuerier(githubModelPath);
+		initLoginPassword(login, password);
+		initRepoId(login, gitHubProjectName);
+		
+		this.startRepoExtraction(replaceIfExist, gitHubProjectName);
+	
+	}
+	
+	
+	public void initTokens(String... tokens) {
 		this.tokens = new LinkedList<String>();
 		for (String t : tokens) {
 			this.tokens.add(t.trim());
 		}
-		init(this.tokens.get(0));
+		initCurrentToken(this.tokens.get(0));
+	}
+	
+	
+	public void extractRepo(boolean replaceIfExist, String gitHubProjectName, String githubModelPath, String... tokens) throws IOException {
+		initQuerier(githubModelPath);
+		initTokens(tokens);
+		//initTokens retrieves the login associated to the token
+		initRepoId(login, gitHubProjectName);	
+		this.startRepoExtraction(replaceIfExist, gitHubProjectName);
 		
-		if(!repoAlreadyExists())
-			this.createRepo();
-		else if(repoAlreadyExists() && replaceIfExist) { 
-			this.deleteRepo();
-			this.createRepo();
+	}
+	
+	
+	public void initLoginPassword(String login, String password) {
+		if (this.login == null) {
+			this.client = new GitHubClient();
+			this.client.setCredentials(login, password);
+			this.login = login;
+			this.initGitHubServices();
 		}
-		else {
-			System.out.println("repo already exists!");
-		}	
 	}
 	
 	
-	public void init(String login, String password) {
-		this.client = new GitHubClient();
-		this.client.setCredentials(login, password);
-		this.initGitHubServices();
-	}
-	
-	
-	public void init(String token) {
-		this.client = new GitHubClient();
-		this.client.setOAuth2Token(token);
-		this.current_token = token;
-		this.initGitHubServices();
-		
-		//get the login of the user. This information is needed to interact with the repository
-		try {
-			this.login = this.uservice.getUser().getLogin();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	public void initCurrentToken(String token) {
+		if (this.current_token == null) {
+			this.client = new GitHubClient();
+			this.client.setOAuth2Token(token);
+			this.current_token = token;
+			this.initGitHubServices();
+			
+			//get the login of the user. This information is needed to interact with the repository
+			try {
+				this.login = this.uservice.getUser().getLogin();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -152,7 +217,7 @@ public class GitHubRepoExtractor {
 	
 	
 	public boolean repoAlreadyExists() {
-		this.repoId = new RepositoryId(this.login, querier.getRepository().getName());
+		
 		return this.repoId != null;
 	}
 	
@@ -181,15 +246,22 @@ public class GitHubRepoExtractor {
 			new CountDownTimer();
 		}
 		
-		System.out.println(client.getRemainingRequests());
-		
+	}
+	
+	
+	public void setRepoName(Repository repo, String name) {
+		if(name.equals(""))
+			repo.setName(querier.getRepository().getName());
+		else
+			repo.setName(name);
 	}
 
 	
-	public void createRepo() {
+	public void createRepo(String repoName) {
 		try {
 			this.repo = new Repository();
-			repo.setName(querier.getRepository().getName());
+			
+			this.setRepoName(repo, repoName);
 			repo.setFork(false);
 			repo.setHasIssues(querier.hasRepoIssues());
 			repo.setPrivate(false);
@@ -197,7 +269,7 @@ public class GitHubRepoExtractor {
 			repo.setDescription(querier.getRepository().getDescription());
 			
 			rservice.createRepository(repo);
-			this.repoId = new RepositoryId(this.login, querier.getRepository().getName());
+			initRepoId(this.login, repo.getName());
 			
 			//monitor remaining requests
 			this.monitorRemainingRequests();
@@ -225,10 +297,6 @@ public class GitHubRepoExtractor {
 					
 					this.createIssue(issueNumber, title, body, createdAt, closedAt, assignee, creator, labels, comments, events);
 				}
-				
-			}
-			
-			if (querier.hasRepoWiki()) {
 				
 			}
 		}
@@ -346,41 +414,31 @@ public class GitHubRepoExtractor {
 	}
 	
 	
-	public void createIssue(int issueNumber, String title, String body, String createdAt, String closedAt, String assignee, String creator, List<String> labels, List<String[]> comments, List<String[]> events) {
-		try {
-			Issue i = new Issue();
-			i.setTitle(title);
-			i.setBody(body);
-			i.setLabels(this.getLabels(labels));
-			iservice.createIssue(repoId, i);
-			
-			//monitor remaining requests
-			this.monitorRemainingRequests();
-			
-			int gitHubIssueNumber = generatedGitHubIssueNumber();
-			issueNumber2GitHubIssueNumber.put(issueNumber, gitHubIssueNumber);
-					
-			this.createIssueComments(gitHubIssueNumber, comments);
-			
-			if (events.size() > 0)
-				this.createIssueCommentForEvents(gitHubIssueNumber, events);
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void createIssue(int issueNumber, String title, String body, String createdAt, String closedAt, String assignee, String creator, List<String> labels, List<String[]> comments, List<String[]> events) throws IOException {
+		
+		Issue i = new Issue();
+		i.setTitle(title);
+		i.setBody(body);
+		i.setLabels(this.getLabels(labels));
+		iservice.createIssue(repoId, i);
+		
+		//monitor remaining requests
+		this.monitorRemainingRequests();
+		
+		int gitHubIssueNumber = generatedGitHubIssueNumber();
+		issueNumber2GitHubIssueNumber.put(issueNumber, gitHubIssueNumber);
+				
+		this.createIssueComments(gitHubIssueNumber, comments);
+		
+		if (events.size() > 0)
+			this.createIssueCommentForEvents(gitHubIssueNumber, events);
 	}
 
 	
-	public void deleteRepo() {
+	public void deleteRepo() throws IOException {
 		StringBuilder uri = new StringBuilder(IGitHubConstants.SEGMENT_REPOS);
 		uri.append('/').append(repoId.generateId());
-		try {
-			client.delete(uri.toString());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		client.delete(uri.toString());
 	}
 
 }

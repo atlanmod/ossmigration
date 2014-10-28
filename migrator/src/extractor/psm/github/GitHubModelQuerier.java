@@ -21,7 +21,7 @@ public class GitHubModelQuerier {
 	private Repository repo;
 	private String modelPath;
 	
-	public GitHubModelQuerier(String githubModelPath) {
+	public GitHubModelQuerier(String githubModelPath) throws IOException {
 		this.modelPath = githubModelPath;
 		this.model = this.loadGitHubRepoModel(githubModelPath);
 		this.repo = findRepository();
@@ -138,6 +138,42 @@ public class GitHubModelQuerier {
 			
 	}
 	
+	
+	public String[] getWikiHome() {
+		String[] homeContent = null;
+		Wiki wiki = repo.getWiki();
+		for (WikiPage page: wiki.getPages()) {
+			
+			if (page.isHome()) {
+				homeContent = new String[]{
+						page.getName(),
+						page.getBody()		
+				};
+				break;
+			}
+		}
+		
+		return homeContent;
+	}
+	
+	
+	public List<String[]> getWikiPages() {
+		List<String[]> contentPages = new LinkedList<String[]>();
+		Wiki wiki = repo.getWiki();
+		for (WikiPage page: wiki.getPages()) {
+			if (!page.isHome()) {
+				String[] pageContent = new String[]{
+											page.getName(),
+											page.getBody()
+										};
+				contentPages.add(pageContent);
+			}
+		}
+		
+		return contentPages;
+	}
+	
+	
 	public boolean hasRepoIssues() {
 		return !repo.getIssues().isEmpty();
 	}
@@ -150,18 +186,14 @@ public class GitHubModelQuerier {
 		return !repo.getLabels().isEmpty();
 	}
 	
-	public Resource loadGitHubRepoModel(String githubModelPath) {
+	public Resource loadGitHubRepoModel(String githubModelPath) throws IOException {
 		//load resource
 		ResourceSet resSet = new ResourceSetImpl();
 		resSet.getPackageRegistry().put(GitHubPackage.eNS_URI, GitHubPackage.eINSTANCE);
 		resSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
 		Resource resLoad = resSet.getResource(URI.createURI(githubModelPath),true);		               
 		
-		try {
-			resLoad.load(null);
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
+		resLoad.load(null);
 		
 		return resLoad;
 		

@@ -54,5 +54,6 @@
 	<classpathentry kind="lib" path="lib/org.eclipse.m2m.atl.engine_3.4.0.v201305211502.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.m2m.atl.engine.emfvm_3.4.0.v201305211502.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.m2m.atl.common_3.4.0.v201305211502.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.m2m.atl.engine.emfvm.launch_3.4.0.v201305211502.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EPackage;
 import GitHub.GitHubPackage;
 import extractor.psm.github.GitHubRepoExtractor;
 
-public class Migrator {
+public class RepoMigrator {
 	
 	private Properties prop = new Properties();
 	private final static String CONFIG_PROPERTIES_PATH = "config.properties";
@@ -23,7 +23,7 @@ public class Migrator {
 	private GitHubRepoExtractor extractor = new GitHubRepoExtractor();
 	private GoogleCode2GitHub transformation = new GoogleCode2GitHub();
 	
-	public Migrator() {
+	public RepoMigrator() {
 		registerMetamodels();
 		initProperties();
 	}
@@ -48,32 +48,29 @@ public class Migrator {
 	}
 	
 	
-	public void migrate(boolean replaceGitHubRepoIfExist, String googleProject, String... tokens) {
+	public void migrate(boolean replaceGitHubRepoIfExist, String gitHubProject, String googleProject, String... tokens) throws IOException {
 		// TODO Auto-generated method stub
-		System.out.println("migrate with tokens");
-		//injector.inject(googleProject, prop.getProperty("GOOGLECODE_MODEL_PATH"));
+		injector.inject(googleProject, prop.getProperty("GOOGLECODE_MODEL_PATH"));
 		
-//		transformation.transform(prop.getProperty("GOOGLECODE_METAMODEL_PATH"),
-//								 prop.getProperty("GITHUB_METAMODEL_PATH"),
-//								 prop.getProperty("GOOGLECODE_MODEL_PATH"),
-//								 prop.getProperty("GITHUB_MODEL_PATH"),
-//								 prop.getProperty("TRANSFORMATION_ASM_PATH"));
+		transformation.transform(prop.getProperty("GOOGLECODE_METAMODEL_PATH"),
+								 prop.getProperty("GITHUB_METAMODEL_PATH"),
+								 prop.getProperty("GOOGLECODE_MODEL_PATH"),
+								 prop.getProperty("GITHUB_MODEL_PATH"),
+								 prop.getProperty("TRANSFORMATION_ASM_PATH"));
 		
-		extractor.extract(replaceGitHubRepoIfExist, prop.getProperty("GITHUB_MODEL_PATH"), tokens);
+		extractor.extractRepo(replaceGitHubRepoIfExist, gitHubProject, prop.getProperty("GITHUB_MODEL_PATH"), tokens);
 	}
 
-	public void migrate(boolean replaceGitHubRepoIfExist, String googleProject, String login, String password) {
-		// TODO Auto-generated method stub
-		System.out.println("migrate with login/password");
-		//injector.inject(googleProject, prop.getProperty("GOOGLECODE_MODEL_PATH"));
+	public void migrate(boolean replaceGitHubRepoIfExist, String gitHubProject, String googleProject, String login, String password) throws IOException {
+		injector.inject(googleProject, prop.getProperty("GOOGLECODE_MODEL_PATH"));
 		
-//		transformation.transform(prop.getProperty("GOOGLECODE_METAMODEL_PATH"),
-//				 prop.getProperty("GITHUB_METAMODEL_PATH"),
-//				 prop.getProperty("GOOGLECODE_MODEL_PATH"),
-//				 prop.getProperty("GITHUB_MODEL_PATH"),
-//				 prop.getProperty("TRANSFORMATION_ASM_PATH"));
+		transformation.transform(prop.getProperty("GOOGLECODE_METAMODEL_PATH"),
+				 prop.getProperty("GITHUB_METAMODEL_PATH"),
+				 prop.getProperty("GOOGLECODE_MODEL_PATH"),
+				 prop.getProperty("GITHUB_MODEL_PATH"),
+				 prop.getProperty("TRANSFORMATION_ASM_PATH"));
 		
-		extractor.extract(replaceGitHubRepoIfExist, prop.getProperty("GITHUB_MODEL_PATH"), login, password);
+		extractor.extractRepo(replaceGitHubRepoIfExist, gitHubProject, prop.getProperty("GITHUB_MODEL_PATH"), login, password);
 	}
 
 }

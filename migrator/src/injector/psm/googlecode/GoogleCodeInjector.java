@@ -133,7 +133,7 @@ public class GoogleCodeInjector {
 
 		WebDriver driver = getDriver();
 		driver.get(projectURL);
-
+		
 		// Info from the header
 		WebElement headerElement = driver.findElement(By.className("headbg"));
 
@@ -188,6 +188,8 @@ public class GoogleCodeInjector {
 
 		GoogleWiki wiki = GooglecodeFactory.eINSTANCE.createGoogleWiki();
 		project.setWiki(wiki);
+		
+		driver.close();
 
 		return project;   
 
