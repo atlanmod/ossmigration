@@ -87,7 +87,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Release/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Release/size"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Release/download_count"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Release/content_type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Release/_id"/>
     </genClasses>
     <genClasses ecoreClass="GitHub.ecore#//Issue">
@@ -127,7 +126,7 @@
     </genClasses>
     <genClasses ecoreClass="GitHub.ecore#//WikiPage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//WikiPage/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//WikiPage/is_home"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//WikiPage/home"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//WikiPage/body"/>
     </genClasses>
     <genClasses image="false" ecoreClass="GitHub.ecore#//IssueElement">

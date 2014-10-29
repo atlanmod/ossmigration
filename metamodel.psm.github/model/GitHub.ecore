@@ -21,7 +21,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
         eType="#//Content" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="languages" upperBound="-1"
-        eType="#//Language" containment="true"/>
+        eType="#//Language"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="milestones" upperBound="-1"
         eType="#//Milestone" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="releases" upperBound="-1"
@@ -32,7 +32,12 @@
         eType="#//Label" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="wiki" eType="#//Wiki" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1"
-        eType="#//User" containment="true"/>
+        eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commits" upperBound="-1"
+        eType="#//Commit" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forks" upperBound="-1"
+        eType="#//Repository"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Repository"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Content">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ContentType"/>
@@ -86,6 +91,8 @@
         eType="#//IssueEvent" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="comments" upperBound="-1"
         eType="#//IssueComment" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relatedContents" upperBound="-1"
+        eType="#//Content"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IssueEvent" eSuperTypes="#//IssueElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//User"/>
@@ -112,7 +119,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WikiPage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="is_home" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="home" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ContentType">
@@ -141,5 +148,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IssueElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="created_at" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Commit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sha" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="created_at" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="author" lowerBound="1"
+        eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relatedContents" lowerBound="1"
+        upperBound="-1" eType="#//Content"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="solves" upperBound="-1"
+        eType="#//Issue"/>
   </eClassifiers>
 </ecore:EPackage>
