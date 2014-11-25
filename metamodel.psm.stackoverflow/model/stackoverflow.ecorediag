@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_893IUHSIEeSZIYHxqGTmig" type="EcoreTools" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_8_YyUHSIEeSZIYHxqGTmig" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_8_ccsHSIEeSZIYHxqGTmig" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_8_dDwHSIEeSZIYHxqGTmig" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_9APG4HSIEeSZIYHxqGTmig" type="2001">
+        <element xmi:type="ecore:EAttribute" href="stackoverflow.ecore#//Question/title"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9APG4XSIEeSZIYHxqGTmig"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9APt8HSIEeSZIYHxqGTmig" type="2001">
+        <element xmi:type="ecore:EAttribute" href="stackoverflow.ecore#//Question/views"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9APt8XSIEeSZIYHxqGTmig"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_8_dDwXSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_8_dDwnSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_8_dDw3SIEeSZIYHxqGTmig"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_8_dq0HSIEeSZIYHxqGTmig" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_8_dq0XSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_8_dq0nSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_8_dq03SIEeSZIYHxqGTmig"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_8_YyUXSIEeSZIYHxqGTmig" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="stackoverflow.ecore#//Question"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8_YyUnSIEeSZIYHxqGTmig" x="235" y="495"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_9AQVAHSIEeSZIYHxqGTmig" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_9AQVA3SIEeSZIYHxqGTmig" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_9AQ8EHSIEeSZIYHxqGTmig" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_9ARjIHSIEeSZIYHxqGTmig" type="2001">
+        <element xmi:type="ecore:EAttribute" href="stackoverflow.ecore#//Answer/accepted"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9ARjIXSIEeSZIYHxqGTmig"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_9AQ8EXSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_9AQ8EnSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_9AQ8E3SIEeSZIYHxqGTmig"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_9AQ8FHSIEeSZIYHxqGTmig" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_9AQ8FXSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_9AQ8FnSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_9AQ8F3SIEeSZIYHxqGTmig"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_9AQVAXSIEeSZIYHxqGTmig" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="stackoverflow.ecore#//Answer"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9AQVAnSIEeSZIYHxqGTmig" x="355" y="495"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_9ARjInSIEeSZIYHxqGTmig" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_9ASKMHSIEeSZIYHxqGTmig" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_9ASKMXSIEeSZIYHxqGTmig" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_9ASKMnSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_9ASKM3SIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_9ASKNHSIEeSZIYHxqGTmig"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_9ASKNXSIEeSZIYHxqGTmig" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_9ASKNnSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_9ASKN3SIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_9ASKOHSIEeSZIYHxqGTmig"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_9ARjI3SIEeSZIYHxqGTmig" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="stackoverflow.ecore#//Comment"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9ARjJHSIEeSZIYHxqGTmig" x="520" y="495"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_9ASxQHSIEeSZIYHxqGTmig" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_9ATYUXSIEeSZIYHxqGTmig" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_9AT_YHSIEeSZIYHxqGTmig" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_9AT_aHSIEeSZIYHxqGTmig" type="2001">
+        <element xmi:type="ecore:EAttribute" href="stackoverflow.ecore#//Contribution/votes"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9AT_aXSIEeSZIYHxqGTmig"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9AUmcHSIEeSZIYHxqGTmig" type="2001">
+        <element xmi:type="ecore:EAttribute" href="stackoverflow.ecore#//Contribution/timesEdited"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9AUmcXSIEeSZIYHxqGTmig"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9AUmcnSIEeSZIYHxqGTmig" type="2001">
+        <element xmi:type="ecore:EAttribute" href="stackoverflow.ecore#//Contribution/content"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9AUmc3SIEeSZIYHxqGTmig"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9AVNgHSIEeSZIYHxqGTmig" type="2001">
+        <element xmi:type="ecore:EAttribute" href="stackoverflow.ecore#//Contribution/timestamp"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9AVNgXSIEeSZIYHxqGTmig"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_9AT_YXSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_9AT_YnSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_9AT_Y3SIEeSZIYHxqGTmig"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_9AT_ZHSIEeSZIYHxqGTmig" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_9AT_ZXSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_9AT_ZnSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_9AT_Z3SIEeSZIYHxqGTmig"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_9ASxQXSIEeSZIYHxqGTmig" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="stackoverflow.ecore#//Contribution"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9ATYUHSIEeSZIYHxqGTmig" x="338" y="320"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_9AVNgnSIEeSZIYHxqGTmig" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_9AV0kHSIEeSZIYHxqGTmig" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_9AV0kXSIEeSZIYHxqGTmig" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_9AWbpHSIEeSZIYHxqGTmig" type="2001">
+        <element xmi:type="ecore:EAttribute" href="stackoverflow.ecore#//User/id"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9AWbpXSIEeSZIYHxqGTmig"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9AXCsHSIEeSZIYHxqGTmig" type="2001">
+        <element xmi:type="ecore:EAttribute" href="stackoverflow.ecore#//User/fullName"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9AXCsXSIEeSZIYHxqGTmig"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9AXCsnSIEeSZIYHxqGTmig" type="2001">
+        <element xmi:type="ecore:EAttribute" href="stackoverflow.ecore#//User/website"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9AXCs3SIEeSZIYHxqGTmig"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9AXpwHSIEeSZIYHxqGTmig" type="2001">
+        <element xmi:type="ecore:EAttribute" href="stackoverflow.ecore#//User/location"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9AXpwXSIEeSZIYHxqGTmig"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9AXpwnSIEeSZIYHxqGTmig" type="2001">
+        <element xmi:type="ecore:EAttribute" href="stackoverflow.ecore#//User/age"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9AXpw3SIEeSZIYHxqGTmig"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9AXpxHSIEeSZIYHxqGTmig" type="2001">
+        <element xmi:type="ecore:EAttribute" href="stackoverflow.ecore#//User/membreFor"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9AXpxXSIEeSZIYHxqGTmig"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9AYQ0HSIEeSZIYHxqGTmig" type="2001">
+        <element xmi:type="ecore:EAttribute" href="stackoverflow.ecore#//User/seen"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9AYQ0XSIEeSZIYHxqGTmig"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9AYQ0nSIEeSZIYHxqGTmig" type="2001">
+        <element xmi:type="ecore:EAttribute" href="stackoverflow.ecore#//User/profileViews"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9AYQ03SIEeSZIYHxqGTmig"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_9AV0knSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_9AV0k3SIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_9AV0lHSIEeSZIYHxqGTmig"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_9AWboHSIEeSZIYHxqGTmig" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_9AWboXSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_9AWbonSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_9AWbo3SIEeSZIYHxqGTmig"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_9AVNg3SIEeSZIYHxqGTmig" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="stackoverflow.ecore#//User"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9AVNhHSIEeSZIYHxqGTmig" x="335" y="90"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_9AY34HSIEeSZIYHxqGTmig" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_9AZe8HSIEeSZIYHxqGTmig" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_9AZe8XSIEeSZIYHxqGTmig" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_9AatEHSIEeSZIYHxqGTmig" type="2001">
+        <element xmi:type="ecore:EAttribute" href="stackoverflow.ecore#//Label/id"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9AatEXSIEeSZIYHxqGTmig"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_9AZe8nSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_9AZe83SIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_9AZe9HSIEeSZIYHxqGTmig"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_9AZe9XSIEeSZIYHxqGTmig" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_9AZe9nSIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_9AZe93SIEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_9AZe-HSIEeSZIYHxqGTmig"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_9AY34XSIEeSZIYHxqGTmig" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="stackoverflow.ecore#//Label"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9AY34nSIEeSZIYHxqGTmig" x="25" y="500"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_qmjt8HSVEeSZIYHxqGTmig" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_qmkVAHSVEeSZIYHxqGTmig" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_qmkVAXSVEeSZIYHxqGTmig" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_qmkVAnSVEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_qmkVA3SVEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_qmkVBHSVEeSZIYHxqGTmig"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_qmk8EHSVEeSZIYHxqGTmig" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_qmk8EXSVEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_qmk8EnSVEeSZIYHxqGTmig"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_qmk8E3SVEeSZIYHxqGTmig"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_qmjt8XSVEeSZIYHxqGTmig" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="stackoverflow.ecore#//StackOverflow"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qmjt8nSVEeSZIYHxqGTmig" x="45" y="150"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_893IUXSIEeSZIYHxqGTmig"/>
+  <element xmi:type="ecore:EPackage" href="stackoverflow.ecore#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_9A08wHSIEeSZIYHxqGTmig" type="3002" source="_8_YyUHSIEeSZIYHxqGTmig" target="_9AY34HSIEeSZIYHxqGTmig">
+    <children xmi:type="notation:Node" xmi:id="_9A1j0HSIEeSZIYHxqGTmig" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_9A2K4HSIEeSZIYHxqGTmig" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_9A2K4XSIEeSZIYHxqGTmig" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_9A2K4nSIEeSZIYHxqGTmig" x="-3" y="13"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_9A08wXSIEeSZIYHxqGTmig" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_9A08wnSIEeSZIYHxqGTmig" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="stackoverflow.ecore#//Question/labels"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9A08w3SIEeSZIYHxqGTmig" points="[0, 0, 0, 111]$[0, -111, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9CfJoXSIEeSZIYHxqGTmig" id="(0.07692307692307693,0.4264705882352941)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9CfJonSIEeSZIYHxqGTmig" id="(0.9803921568627451,0.43137254901960786)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_9A2x8HSIEeSZIYHxqGTmig" type="3003" source="_8_YyUHSIEeSZIYHxqGTmig" target="_9ASxQHSIEeSZIYHxqGTmig">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_9A2x8XSIEeSZIYHxqGTmig" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_9A2x8nSIEeSZIYHxqGTmig" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9A2x83SIEeSZIYHxqGTmig" points="[15, 0, -159, 75]$[15, -40, -159, 35]$[95, -40, -79, 35]$[95, -75, -79, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9CeikHSIEeSZIYHxqGTmig" id="(0.34615384615384615,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9CfJoHSIEeSZIYHxqGTmig" id="(0.75,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_9A3ZAHSIEeSZIYHxqGTmig" type="3003" source="_9AQVAHSIEeSZIYHxqGTmig" target="_9ASxQHSIEeSZIYHxqGTmig">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_9A3ZAXSIEeSZIYHxqGTmig" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_9A3ZAnSIEeSZIYHxqGTmig" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9A3ZA3SIEeSZIYHxqGTmig" points="[-9, 0, 47, 75]$[-9, -35, 47, 40]$[-14, -35, 42, 40]$[-14, -75, 42, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9CfwsHSIEeSZIYHxqGTmig" id="(0.5,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9CgXwHSIEeSZIYHxqGTmig" id="(0.25,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_9A4AEHSIEeSZIYHxqGTmig" type="3003" source="_9ARjInSIEeSZIYHxqGTmig" target="_9ASxQHSIEeSZIYHxqGTmig">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_9A4AEXSIEeSZIYHxqGTmig" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_9A4AEnSIEeSZIYHxqGTmig" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9A4AE3SIEeSZIYHxqGTmig" points="[10, 0, 171, 75]$[10, -35, 171, 40]$[-110, -35, 51, 40]$[-110, -75, 51, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9CgXwXSIEeSZIYHxqGTmig" id="(0.14705882352941177,0.13953488372093023)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9CgXwnSIEeSZIYHxqGTmig" id="(0.5,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_9A4AFHSIEeSZIYHxqGTmig" type="3002" source="_9ASxQHSIEeSZIYHxqGTmig" target="_9AVNgnSIEeSZIYHxqGTmig">
+    <children xmi:type="notation:Node" xmi:id="_9A4nIHSIEeSZIYHxqGTmig" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_9A4nIXSIEeSZIYHxqGTmig" x="-1" y="-25"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_9A4nInSIEeSZIYHxqGTmig" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_9A4nI3SIEeSZIYHxqGTmig" x="-1" y="16"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_9A4AFXSIEeSZIYHxqGTmig" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_9A4AFnSIEeSZIYHxqGTmig" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="stackoverflow.ecore#//Contribution/author"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9A4AF3SIEeSZIYHxqGTmig" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9CdUcHSIEeSZIYHxqGTmig" id="(0.24305555555555555,0.049019607843137254)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9CdUcXSIEeSZIYHxqGTmig" id="(0.26490066225165565,0.9764705882352941)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_9A4nJHSIEeSZIYHxqGTmig" type="3002" source="_9ASxQHSIEeSZIYHxqGTmig" target="_9AVNgnSIEeSZIYHxqGTmig">
+    <children xmi:type="notation:Node" xmi:id="_9A5OMHSIEeSZIYHxqGTmig" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_9A5OMXSIEeSZIYHxqGTmig" x="-1" y="-23"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_9A5OMnSIEeSZIYHxqGTmig" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_9A5OM3SIEeSZIYHxqGTmig" x="-6" y="15"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_9A4nJXSIEeSZIYHxqGTmig" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_9A4nJnSIEeSZIYHxqGTmig" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="stackoverflow.ecore#//Contribution/editor"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9A4nJ3SIEeSZIYHxqGTmig" points="[9, -6, 0, 76]$[9, -68, 0, 14]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9CcGUHSIEeSZIYHxqGTmig" id="(0.6944444444444444,0.06862745098039216)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9CctYHSIEeSZIYHxqGTmig" id="(0.7417218543046358,0.9176470588235294)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_9A5ONHSIEeSZIYHxqGTmig" type="3002" source="_9ASxQHSIEeSZIYHxqGTmig" target="_9ARjInSIEeSZIYHxqGTmig">
+    <children xmi:type="notation:Node" xmi:id="_9A51Q3SIEeSZIYHxqGTmig" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_9A51RHSIEeSZIYHxqGTmig" x="10" y="-40"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_9A51RXSIEeSZIYHxqGTmig" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_9A51RnSIEeSZIYHxqGTmig" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_9A51QHSIEeSZIYHxqGTmig" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_9A51QXSIEeSZIYHxqGTmig" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="stackoverflow.ecore#//Contribution/comments"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9A51QnSIEeSZIYHxqGTmig" points="[19, 0, -111, -127]$[139, 0, 9, -127]$[139, 125, 9, -2]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9Cd7gHSIEeSZIYHxqGTmig" id="(0.8680555555555556,0.5098039215686274)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9Cd7gXSIEeSZIYHxqGTmig" id="(0.7156862745098039,0.06976744186046512)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_i-JLEHSVEeSZIYHxqGTmig" type="3002" source="_8_YyUHSIEeSZIYHxqGTmig" target="_9AQVAHSIEeSZIYHxqGTmig">
+    <children xmi:type="notation:Node" xmi:id="_i-JyIHSVEeSZIYHxqGTmig" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_i-JyIXSVEeSZIYHxqGTmig" x="20" y="-26"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_i-JyInSVEeSZIYHxqGTmig" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_i-JyI3SVEeSZIYHxqGTmig" x="15" y="21"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_i-JLEXSVEeSZIYHxqGTmig" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_i-JLEnSVEeSZIYHxqGTmig" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="stackoverflow.ecore#//Question/answers"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_i-JLE3SVEeSZIYHxqGTmig" points="[-8, 13, -144, 42]$[-8, 42, -144, 71]$[136, 42, 0, 71]$[136, -4, 0, 25]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_i-M1cHSVEeSZIYHxqGTmig" id="(0.5769230769230769,0.8088235294117647)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_skwgAHSVEeSZIYHxqGTmig" type="3002" source="_qmjt8HSVEeSZIYHxqGTmig" target="_8_YyUHSIEeSZIYHxqGTmig">
+    <children xmi:type="notation:Node" xmi:id="_skwgBHSVEeSZIYHxqGTmig" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_skwgBXSVEeSZIYHxqGTmig" x="52" y="32"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_skwgBnSVEeSZIYHxqGTmig" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_skxHEHSVEeSZIYHxqGTmig" x="47" y="-19"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_skwgAXSVEeSZIYHxqGTmig" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_skwgAnSVEeSZIYHxqGTmig" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="stackoverflow.ecore#//StackOverflow/questions"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_skwgA3SVEeSZIYHxqGTmig" points="[-3, 7, -132, -304]$[-3, 39, -132, -272]$[121, 39, -8, -272]$[121, 311, -8, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_skzjUHSVEeSZIYHxqGTmig" id="(0.8269230769230769,0.8372093023255814)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_A5uYkHSXEeSZIYHxqGTmig" id="(0.23076923076923078,0.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_t7dNMHSVEeSZIYHxqGTmig" type="3002" source="_qmjt8HSVEeSZIYHxqGTmig" target="_9AVNgnSIEeSZIYHxqGTmig">
+    <children xmi:type="notation:Node" xmi:id="_t7d0QHSVEeSZIYHxqGTmig" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_t7d0QXSVEeSZIYHxqGTmig" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_t7d0QnSVEeSZIYHxqGTmig" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_t7d0Q3SVEeSZIYHxqGTmig" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_t7dNMXSVEeSZIYHxqGTmig" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_t7dNMnSVEeSZIYHxqGTmig" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="stackoverflow.ecore#//StackOverflow/users"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t7dNM3SVEeSZIYHxqGTmig" points="[16, -9, -230, 122]$[172, -125, -74, 6]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_t7gQgHSVEeSZIYHxqGTmig" id="(0.8461538461538461,0.3488372093023256)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_u4hSYHSVEeSZIYHxqGTmig" type="3002" source="_qmjt8HSVEeSZIYHxqGTmig" target="_9AY34HSIEeSZIYHxqGTmig">
+    <children xmi:type="notation:Node" xmi:id="_u4hSZHSVEeSZIYHxqGTmig" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_u4hSZXSVEeSZIYHxqGTmig" x="24" y="-26"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_u4h5cHSVEeSZIYHxqGTmig" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_u4h5cXSVEeSZIYHxqGTmig" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_u4hSYXSVEeSZIYHxqGTmig" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_u4hSYnSVEeSZIYHxqGTmig" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="stackoverflow.ecore#//StackOverflow/labels"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_u4hSY3SVEeSZIYHxqGTmig" points="[-2, 10, 45, -192]$[-39, 178, 8, -24]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_u4kVsHSVEeSZIYHxqGTmig" id="(0.4423076923076923,0.7674418604651163)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BkXRAHSXEeSZIYHxqGTmig" id="(0.6176470588235294,0.11764705882352941)"/>
+  </edges>
+</notation:Diagram>
