@@ -1,0 +1,115 @@
+-- @path GH=/metamodel.psm.github/model/GitHub.ecore
+-- @path CLB=/metamodel.pim.collaboration/model/collaboration.ecore
+
+module github2pim;
+create OUT : CLB from IN : GH;
+
+helper context GH!Repository def : getAllUsersInIssues : Sequence(GH!User) =
+	self.issues->collect(i | Sequence{i.assignee}->union(Sequence{i.creator})
+											->union(i.events->collect(e | e.actor))
+											->union(i.comments->collect(c | c.creator))
+											)->flatten()->asSet()->asSequence()
+												->select(u | not u.oclIsUndefined());
+
+helper context GH!Repository def : getAllUsersInCommits : Sequence(GH!Commit) =
+	self.commits->collect(i | i.author)->asSet()->asSequence();
+
+helper context GH!Repository def : getAllUsedLabels : Sequence(GH!Label) =
+	self.labels->union(self.issues->collect(i | i.labels))->asSet()->asSequence();
+												
+rule Project2Project {
+	from
+		s: GH!Repository
+	to
+		t: CLB!ProjectRepository (
+			projects <- Sequence{project}
+		),
+		project : CLB!Project (
+			shortName <- s.name,
+			description <- s.description,
+			persons <- s.users,
+			bugTrackingSystems <- Sequence{bugTracker},
+			vcsRepositories <- Sequence{vcsRepository},
+			communicationChannels <- Sequence{communicationChannel}
+		),
+		bugTracker : CLB!BugTrackingSystem (
+			persons <- s.getAllUsersInIssues,
+			issues <- s.issues,
+			labels <- s.getAllUsedLabels
+		),
+		vcsRepository : CLB!VcsRepository (
+			persons <- s.getAllUsersInCommits,
+			commits <- s.commits
+		),
+		communicationChannel : CLB!Wiki (
+			pages <- s.wiki.pages
+		)
+}
+
+rule WikiPage2WikiPage {
+	from
+		s: GH!WikiPage
+	to
+		t: CLB!WikiPage (
+			title <- s.name,
+			content <- s.body	
+		)
+}
+
+
+rule Commit2Commit {
+	from
+		s: GH!Commit
+	to
+		t: CLB!Commit (
+			message <- s.description,
+			owner <- s.author,
+			files <- s.relatedContents
+		)
+}
+
+
+rule Content2File {
+	from
+		s: GH!Content (s.type = #file)
+	to
+		t: CLB!File (
+			isDirectory <- false,
+			name <- s.name,
+			extension <- s.name.split('.')->last()
+		)
+}
+
+
+rule User2Person {
+	from
+		s: GH!User
+	to
+		t: CLB!Person (
+			name <- s.login
+		)
+}
+
+rule Issue2Issue {
+	from
+		s: GH!Issue
+	to
+		t: CLB!Issue (
+			number <- s.number,
+			title <- s.title,
+			body <- s.body,
+			state <- if s.state = #open then 'open' else 'closed' endif,
+			created_at <- s.created_at,
+			closed_at <- s.closed_at,
+			labels <- s.labels
+		)
+}
+
+rule Label2Label {
+	from
+		s: GH!Label
+	to
+		t: CLB!IssueLabel (
+			name <- s.name	
+		)
+}
