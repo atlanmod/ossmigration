@@ -404,22 +404,13 @@ public interface CollaborationPackage extends EPackage {
 	int COMMIT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Message</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMIT__MESSAGE = 0;
-
-	/**
 	 * The feature id for the '<em><b>Owner</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMIT__OWNER = 1;
+	int COMMIT__OWNER = 0;
 
 	/**
 	 * The feature id for the '<em><b>Files</b></em>' containment reference list.
@@ -428,7 +419,16 @@ public interface CollaborationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMIT__FILES = 2;
+	int COMMIT__FILES = 1;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__MESSAGE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Date</b></em>' attribute.
@@ -1290,6 +1290,16 @@ public interface CollaborationPackage extends EPackage {
 	int MAILING_LIST_OPERATION_COUNT = COMMUNICATION_CHANNEL_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link Collaboration.impl.QuestionAnswerImpl <em>Question Answer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see Collaboration.impl.QuestionAnswerImpl
+	 * @see Collaboration.impl.CollaborationPackageImpl#getQuestionAnswer()
+	 * @generated
+	 */
+	int QUESTION_ANSWER = 24;
+
+	/**
 	 * The meta object id for the '{@link Collaboration.impl.ItemImpl <em>Item</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1708,6 +1718,298 @@ public interface CollaborationPackage extends EPackage {
 	 * @ordered
 	 */
 	int POST_OPERATION_COUNT = ITEM_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION_ANSWER__URL = COMMUNICATION_CHANNEL__URL;
+
+	/**
+	 * The feature id for the '<em><b>Persons</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION_ANSWER__PERSONS = COMMUNICATION_CHANNEL__PERSONS;
+
+	/**
+	 * The feature id for the '<em><b>Questions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION_ANSWER__QUESTIONS = COMMUNICATION_CHANNEL_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Question Answer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION_ANSWER_FEATURE_COUNT = COMMUNICATION_CHANNEL_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Question Answer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION_ANSWER_OPERATION_COUNT = COMMUNICATION_CHANNEL_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link Collaboration.impl.QuestionImpl <em>Question</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see Collaboration.impl.QuestionImpl
+	 * @see Collaboration.impl.CollaborationPackageImpl#getQuestion()
+	 * @generated
+	 */
+	int QUESTION = 26;
+
+	/**
+	 * The meta object id for the '{@link Collaboration.impl.AnswerImpl <em>Answer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see Collaboration.impl.AnswerImpl
+	 * @see Collaboration.impl.CollaborationPackageImpl#getAnswer()
+	 * @generated
+	 */
+	int ANSWER = 25;
+
+	/**
+	 * The feature id for the '<em><b>Created at</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANSWER__CREATED_AT = ITEM__CREATED_AT;
+
+	/**
+	 * The feature id for the '<em><b>Created by</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANSWER__CREATED_BY = ITEM__CREATED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANSWER__TITLE = ITEM__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANSWER__CONTENT = ITEM__CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Votes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANSWER__VOTES = ITEM_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANSWER__COMMENTS = ITEM_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Accepted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANSWER__ACCEPTED = ITEM_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Answer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANSWER_FEATURE_COUNT = ITEM_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Answer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANSWER_OPERATION_COUNT = ITEM_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Created at</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__CREATED_AT = ITEM__CREATED_AT;
+
+	/**
+	 * The feature id for the '<em><b>Created by</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__CREATED_BY = ITEM__CREATED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__TITLE = ITEM__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__CONTENT = ITEM__CONTENT;
+
+	/**
+	 * The feature id for the '<em><b>Votes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__VOTES = ITEM_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Answers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__ANSWERS = ITEM_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__COMMENTS = ITEM_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Question</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION_FEATURE_COUNT = ITEM_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Question</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION_OPERATION_COUNT = ITEM_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link Collaboration.impl.CommentImpl <em>Comment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see Collaboration.impl.CommentImpl
+	 * @see Collaboration.impl.CollaborationPackageImpl#getComment()
+	 * @generated
+	 */
+	int COMMENT = 27;
+
+	/**
+	 * The feature id for the '<em><b>Created at</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT__CREATED_AT = ITEM__CREATED_AT;
+
+	/**
+	 * The feature id for the '<em><b>Created by</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT__CREATED_BY = ITEM__CREATED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT__TITLE = ITEM__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT__CONTENT = ITEM__CONTENT;
+
+	/**
+	 * The number of structural features of the '<em>Comment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT_FEATURE_COUNT = ITEM_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Comment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT_OPERATION_COUNT = ITEM_OPERATION_COUNT + 0;
 
 
 	/**
@@ -2694,6 +2996,27 @@ public interface CollaborationPackage extends EPackage {
 	EReference getMailingList_Messages();
 
 	/**
+	 * Returns the meta object for class '{@link Collaboration.QuestionAnswer <em>Question Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Question Answer</em>'.
+	 * @see Collaboration.QuestionAnswer
+	 * @generated
+	 */
+	EClass getQuestionAnswer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link Collaboration.QuestionAnswer#getQuestions <em>Questions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Questions</em>'.
+	 * @see Collaboration.QuestionAnswer#getQuestions()
+	 * @see #getQuestionAnswer()
+	 * @generated
+	 */
+	EReference getQuestionAnswer_Questions();
+
+	/**
 	 * Returns the meta object for class '{@link Collaboration.Message <em>Message</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2884,6 +3207,102 @@ public interface CollaborationPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getItem_Content();
+
+	/**
+	 * Returns the meta object for class '{@link Collaboration.Question <em>Question</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Question</em>'.
+	 * @see Collaboration.Question
+	 * @generated
+	 */
+	EClass getQuestion();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link Collaboration.Question#getAnswers <em>Answers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Answers</em>'.
+	 * @see Collaboration.Question#getAnswers()
+	 * @see #getQuestion()
+	 * @generated
+	 */
+	EReference getQuestion_Answers();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link Collaboration.Question#getComments <em>Comments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Comments</em>'.
+	 * @see Collaboration.Question#getComments()
+	 * @see #getQuestion()
+	 * @generated
+	 */
+	EReference getQuestion_Comments();
+
+	/**
+	 * Returns the meta object for the attribute '{@link Collaboration.Question#getVotes <em>Votes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Votes</em>'.
+	 * @see Collaboration.Question#getVotes()
+	 * @see #getQuestion()
+	 * @generated
+	 */
+	EAttribute getQuestion_Votes();
+
+	/**
+	 * Returns the meta object for class '{@link Collaboration.Answer <em>Answer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Answer</em>'.
+	 * @see Collaboration.Answer
+	 * @generated
+	 */
+	EClass getAnswer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link Collaboration.Answer#getComments <em>Comments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Comments</em>'.
+	 * @see Collaboration.Answer#getComments()
+	 * @see #getAnswer()
+	 * @generated
+	 */
+	EReference getAnswer_Comments();
+
+	/**
+	 * Returns the meta object for the attribute '{@link Collaboration.Answer#isAccepted <em>Accepted</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Accepted</em>'.
+	 * @see Collaboration.Answer#isAccepted()
+	 * @see #getAnswer()
+	 * @generated
+	 */
+	EAttribute getAnswer_Accepted();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link Collaboration.Answer#getVotes <em>Votes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Votes</em>'.
+	 * @see Collaboration.Answer#getVotes()
+	 * @see #getAnswer()
+	 * @generated
+	 */
+	EAttribute getAnswer_Votes();
+
+	/**
+	 * Returns the meta object for class '{@link Collaboration.Comment <em>Comment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Comment</em>'.
+	 * @see Collaboration.Comment
+	 * @generated
+	 */
+	EClass getComment();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3673,6 +4092,24 @@ public interface CollaborationPackage extends EPackage {
 		EReference MAILING_LIST__MESSAGES = eINSTANCE.getMailingList_Messages();
 
 		/**
+		 * The meta object literal for the '{@link Collaboration.impl.QuestionAnswerImpl <em>Question Answer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see Collaboration.impl.QuestionAnswerImpl
+		 * @see Collaboration.impl.CollaborationPackageImpl#getQuestionAnswer()
+		 * @generated
+		 */
+		EClass QUESTION_ANSWER = eINSTANCE.getQuestionAnswer();
+
+		/**
+		 * The meta object literal for the '<em><b>Questions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUESTION_ANSWER__QUESTIONS = eINSTANCE.getQuestionAnswer_Questions();
+
+		/**
 		 * The meta object literal for the '{@link Collaboration.impl.MessageImpl <em>Message</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3827,6 +4264,84 @@ public interface CollaborationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ITEM__CONTENT = eINSTANCE.getItem_Content();
+
+		/**
+		 * The meta object literal for the '{@link Collaboration.impl.QuestionImpl <em>Question</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see Collaboration.impl.QuestionImpl
+		 * @see Collaboration.impl.CollaborationPackageImpl#getQuestion()
+		 * @generated
+		 */
+		EClass QUESTION = eINSTANCE.getQuestion();
+
+		/**
+		 * The meta object literal for the '<em><b>Answers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUESTION__ANSWERS = eINSTANCE.getQuestion_Answers();
+
+		/**
+		 * The meta object literal for the '<em><b>Comments</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUESTION__COMMENTS = eINSTANCE.getQuestion_Comments();
+
+		/**
+		 * The meta object literal for the '<em><b>Votes</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUESTION__VOTES = eINSTANCE.getQuestion_Votes();
+
+		/**
+		 * The meta object literal for the '{@link Collaboration.impl.AnswerImpl <em>Answer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see Collaboration.impl.AnswerImpl
+		 * @see Collaboration.impl.CollaborationPackageImpl#getAnswer()
+		 * @generated
+		 */
+		EClass ANSWER = eINSTANCE.getAnswer();
+
+		/**
+		 * The meta object literal for the '<em><b>Comments</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANSWER__COMMENTS = eINSTANCE.getAnswer_Comments();
+
+		/**
+		 * The meta object literal for the '<em><b>Accepted</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANSWER__ACCEPTED = eINSTANCE.getAnswer_Accepted();
+
+		/**
+		 * The meta object literal for the '<em><b>Votes</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANSWER__VOTES = eINSTANCE.getAnswer_Votes();
+
+		/**
+		 * The meta object literal for the '{@link Collaboration.impl.CommentImpl <em>Comment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see Collaboration.impl.CommentImpl
+		 * @see Collaboration.impl.CollaborationPackageImpl#getComment()
+		 * @generated
+		 */
+		EClass COMMENT = eINSTANCE.getComment();
 
 	}
 

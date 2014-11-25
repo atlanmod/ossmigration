@@ -80,6 +80,10 @@ public class CollaborationFactoryImpl extends EFactoryImpl implements Collaborat
 			case CollaborationPackage.NEWS: return createNews();
 			case CollaborationPackage.POST: return createPost();
 			case CollaborationPackage.ITEM: return createItem();
+			case CollaborationPackage.QUESTION_ANSWER: return createQuestionAnswer();
+			case CollaborationPackage.ANSWER: return createAnswer();
+			case CollaborationPackage.QUESTION: return createQuestion();
+			case CollaborationPackage.COMMENT: return createComment();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -270,6 +274,16 @@ public class CollaborationFactoryImpl extends EFactoryImpl implements Collaborat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QuestionAnswer createQuestionAnswer() {
+		QuestionAnswerImpl questionAnswer = new QuestionAnswerImpl();
+		return questionAnswer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Message createMessage() {
 		MessageImpl message = new MessageImpl();
 		return message;
@@ -323,6 +337,36 @@ public class CollaborationFactoryImpl extends EFactoryImpl implements Collaborat
 	public Item createItem() {
 		ItemImpl item = new ItemImpl();
 		return item;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Question createQuestion() {
+		QuestionImpl question = new QuestionImpl();
+		return question;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Answer createAnswer() {
+		AnswerImpl answer = new AnswerImpl();
+		return answer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Comment createComment() {
+		CommentImpl comment = new CommentImpl();
+		return comment;
 	}
 
 	/**

@@ -14,9 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link Collaboration.Commit#getMessage <em>Message</em>}</li>
  *   <li>{@link Collaboration.Commit#getOwner <em>Owner</em>}</li>
  *   <li>{@link Collaboration.Commit#getFiles <em>Files</em>}</li>
+ *   <li>{@link Collaboration.Commit#getMessage <em>Message</em>}</li>
  *   <li>{@link Collaboration.Commit#getDate <em>Date</em>}</li>
  *   <li>{@link Collaboration.Commit#getParent <em>Parent</em>}</li>
  * </ul>

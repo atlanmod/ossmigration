@@ -184,6 +184,15 @@ public interface CollaborationFactory extends EFactory {
 	MailingList createMailingList();
 
 	/**
+	 * Returns a new object of class '<em>Question Answer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Question Answer</em>'.
+	 * @generated
+	 */
+	QuestionAnswer createQuestionAnswer();
+
+	/**
 	 * Returns a new object of class '<em>Message</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -236,6 +245,33 @@ public interface CollaborationFactory extends EFactory {
 	 * @generated
 	 */
 	Item createItem();
+
+	/**
+	 * Returns a new object of class '<em>Question</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Question</em>'.
+	 * @generated
+	 */
+	Question createQuestion();
+
+	/**
+	 * Returns a new object of class '<em>Answer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Answer</em>'.
+	 * @generated
+	 */
+	Answer createAnswer();
+
+	/**
+	 * Returns a new object of class '<em>Comment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Comment</em>'.
+	 * @generated
+	 */
+	Comment createComment();
 
 	/**
 	 * Returns the package supported by this factory.

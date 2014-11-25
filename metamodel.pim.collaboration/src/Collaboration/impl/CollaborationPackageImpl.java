@@ -2,9 +2,11 @@
  */
 package Collaboration.impl;
 
+import Collaboration.Answer;
 import Collaboration.BugTrackingSystem;
 import Collaboration.CollaborationFactory;
 import Collaboration.CollaborationPackage;
+import Collaboration.Comment;
 import Collaboration.Commit;
 import Collaboration.CommunicationChannel;
 import Collaboration.Company;
@@ -22,6 +24,8 @@ import Collaboration.Person;
 import Collaboration.Post;
 import Collaboration.Project;
 import Collaboration.ProjectRepository;
+import Collaboration.Question;
+import Collaboration.QuestionAnswer;
 import Collaboration.Role;
 import Collaboration.VcsRepository;
 import Collaboration.Wiki;
@@ -174,6 +178,13 @@ public class CollaborationPackageImpl extends EPackageImpl implements Collaborat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass questionAnswerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass messageEClass = null;
 
 	/**
@@ -210,6 +221,27 @@ public class CollaborationPackageImpl extends EPackageImpl implements Collaborat
 	 * @generated
 	 */
 	private EClass itemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass questionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass answerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass commentEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -548,7 +580,7 @@ public class CollaborationPackageImpl extends EPackageImpl implements Collaborat
 	 * @generated
 	 */
 	public EAttribute getCommit_Message() {
-		return (EAttribute)commitEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -557,7 +589,7 @@ public class CollaborationPackageImpl extends EPackageImpl implements Collaborat
 	 * @generated
 	 */
 	public EReference getCommit_Owner() {
-		return (EReference)commitEClass.getEStructuralFeatures().get(1);
+		return (EReference)commitEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -566,7 +598,7 @@ public class CollaborationPackageImpl extends EPackageImpl implements Collaborat
 	 * @generated
 	 */
 	public EReference getCommit_Files() {
-		return (EReference)commitEClass.getEStructuralFeatures().get(2);
+		return (EReference)commitEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1096,6 +1128,24 @@ public class CollaborationPackageImpl extends EPackageImpl implements Collaborat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getQuestionAnswer() {
+		return questionAnswerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQuestionAnswer_Questions() {
+		return (EReference)questionAnswerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMessage() {
 		return messageEClass;
 	}
@@ -1258,6 +1308,87 @@ public class CollaborationPackageImpl extends EPackageImpl implements Collaborat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getQuestion() {
+		return questionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQuestion_Answers() {
+		return (EReference)questionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQuestion_Comments() {
+		return (EReference)questionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQuestion_Votes() {
+		return (EAttribute)questionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAnswer() {
+		return answerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAnswer_Comments() {
+		return (EReference)answerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAnswer_Accepted() {
+		return (EAttribute)answerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAnswer_Votes() {
+		return (EAttribute)answerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComment() {
+		return commentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CollaborationFactory getCollaborationFactory() {
 		return (CollaborationFactory)getEFactoryInstance();
 	}
@@ -1315,9 +1446,9 @@ public class CollaborationPackageImpl extends EPackageImpl implements Collaborat
 		createEReference(vcsRepositoryEClass, VCS_REPOSITORY__COMMITS);
 
 		commitEClass = createEClass(COMMIT);
-		createEAttribute(commitEClass, COMMIT__MESSAGE);
 		createEReference(commitEClass, COMMIT__OWNER);
 		createEReference(commitEClass, COMMIT__FILES);
+		createEAttribute(commitEClass, COMMIT__MESSAGE);
 		createEAttribute(commitEClass, COMMIT__DATE);
 		createEReference(commitEClass, COMMIT__PARENT);
 
@@ -1413,6 +1544,21 @@ public class CollaborationPackageImpl extends EPackageImpl implements Collaborat
 		createEReference(itemEClass, ITEM__CREATED_BY);
 		createEAttribute(itemEClass, ITEM__TITLE);
 		createEAttribute(itemEClass, ITEM__CONTENT);
+
+		questionAnswerEClass = createEClass(QUESTION_ANSWER);
+		createEReference(questionAnswerEClass, QUESTION_ANSWER__QUESTIONS);
+
+		answerEClass = createEClass(ANSWER);
+		createEAttribute(answerEClass, ANSWER__VOTES);
+		createEReference(answerEClass, ANSWER__COMMENTS);
+		createEAttribute(answerEClass, ANSWER__ACCEPTED);
+
+		questionEClass = createEClass(QUESTION);
+		createEAttribute(questionEClass, QUESTION__VOTES);
+		createEReference(questionEClass, QUESTION__ANSWERS);
+		createEReference(questionEClass, QUESTION__COMMENTS);
+
+		commentEClass = createEClass(COMMENT);
 	}
 
 	/**
@@ -1451,6 +1597,10 @@ public class CollaborationPackageImpl extends EPackageImpl implements Collaborat
 		wikiPageEClass.getESuperTypes().add(this.getItem());
 		newsEClass.getESuperTypes().add(this.getItem());
 		postEClass.getESuperTypes().add(this.getItem());
+		questionAnswerEClass.getESuperTypes().add(this.getCommunicationChannel());
+		answerEClass.getESuperTypes().add(this.getItem());
+		questionEClass.getESuperTypes().add(this.getItem());
+		commentEClass.getESuperTypes().add(this.getItem());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(projectRepositoryEClass, ProjectRepository.class, "ProjectRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1487,9 +1637,9 @@ public class CollaborationPackageImpl extends EPackageImpl implements Collaborat
 		initEReference(getVcsRepository_Commits(), this.getCommit(), null, "commits", null, 0, -1, VcsRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(commitEClass, Commit.class, "Commit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCommit_Message(), ecorePackage.getEString(), "message", null, 1, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommit_Owner(), this.getPerson(), null, "owner", null, 1, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommit_Files(), this.getFile(), null, "files", null, 1, -1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommit_Message(), ecorePackage.getEString(), "message", null, 1, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCommit_Date(), ecorePackage.getEString(), "date", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommit_Parent(), this.getCommit(), null, "parent", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1585,6 +1735,21 @@ public class CollaborationPackageImpl extends EPackageImpl implements Collaborat
 		initEReference(getItem_Created_by(), this.getPerson(), null, "created_by", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getItem_Title(), ecorePackage.getEString(), "title", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getItem_Content(), ecorePackage.getEString(), "content", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(questionAnswerEClass, QuestionAnswer.class, "QuestionAnswer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getQuestionAnswer_Questions(), this.getQuestion(), null, "questions", null, 0, -1, QuestionAnswer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(answerEClass, Answer.class, "Answer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAnswer_Votes(), ecorePackage.getEInt(), "votes", null, 0, -1, Answer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnswer_Comments(), this.getComment(), null, "comments", null, 0, -1, Answer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnswer_Accepted(), ecorePackage.getEBoolean(), "accepted", null, 0, 1, Answer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(questionEClass, Question.class, "Question", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getQuestion_Votes(), ecorePackage.getEInt(), "votes", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuestion_Answers(), this.getAnswer(), null, "answers", null, 0, -1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuestion_Comments(), this.getComment(), null, "comments", null, 0, -1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(commentEClass, Comment.class, "Comment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
