@@ -20,6 +20,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleCodeProject/wikiLabels"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleCodeProject/users"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleCodeProject/summary"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleCodeProject/commits"/>
     </genClasses>
     <genClasses ecoreClass="googlecode.ecore#//GoogleUser">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleUser/email"/>
@@ -75,6 +76,19 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleWikiPage/comments"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleWikiPage/updated_at"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleWikiPage/summary"/>
+    </genClasses>
+    <genClasses ecoreClass="googlecode.ecore#//GoogleCodeCommit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleCodeCommit/message"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleCodeCommit/files"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference googlecode.ecore#//GoogleCodeCommit/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//GoogleCodeCommit/created_at"/>
+    </genClasses>
+    <genClasses ecoreClass="googlecode.ecore#//File">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//File/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//File/lines"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//File/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//File/extension"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute googlecode.ecore#//File/path"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
