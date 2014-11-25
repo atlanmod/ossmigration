@@ -117,7 +117,6 @@ rule GoogleWiki2Wiki {
 			pages <- s.pages->prepend(home)	
 		),
 		home : GH!WikiPage (
-			is_home <- true,
 			name <- 'Project Description',
 			body <- s.getProjectDescription
 		)
@@ -138,7 +137,7 @@ rule GoogleWikiPage2WikiPage {
 	to
 		t: GH!WikiPage (
 			name <- s.name,
-			is_home <- false,
+			home <- false,
 			body <- s.getBody
 		)
 }
