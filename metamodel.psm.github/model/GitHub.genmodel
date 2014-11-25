@@ -48,13 +48,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/size"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Repository/master_branch"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/contents"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/languages"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/languages"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/milestones"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/releases"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/issues"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/labels"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/wiki"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/users"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/users"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/commits"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/forks"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Repository/parent"/>
     </genClasses>
     <genClasses ecoreClass="GitHub.ecore#//Content">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Content/type"/>
@@ -63,6 +66,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Content/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Content/path"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Content/sha"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Content/extension"/>
     </genClasses>
     <genClasses ecoreClass="GitHub.ecore#//Language">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Language/name"/>
@@ -102,6 +106,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/creator"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/events"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/comments"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Issue/relatedContents"/>
     </genClasses>
     <genClasses ecoreClass="GitHub.ecore#//IssueEvent">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//IssueEvent/actor"/>
@@ -131,6 +136,14 @@
     </genClasses>
     <genClasses image="false" ecoreClass="GitHub.ecore#//IssueElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//IssueElement/created_at"/>
+    </genClasses>
+    <genClasses ecoreClass="GitHub.ecore#//Commit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Commit/sha"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Commit/created_at"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Commit/author"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Commit/relatedContents"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GitHub.ecore#//Commit/solves"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GitHub.ecore#//Commit/description"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
