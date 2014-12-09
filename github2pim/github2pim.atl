@@ -16,6 +16,17 @@ helper context GH!Repository def : getAllUsersInCommits : Sequence(GH!Commit) =
 
 helper context GH!Repository def : getAllUsedLabels : Sequence(GH!Label) =
 	self.labels->union(self.issues->collect(i | i.labels))->asSet()->asSequence();
+
+helper def : commitsPerMonth : Sequence(TupleType(month : String, number : Integer)) =
+	let all_commits : Sequence(CBL!Commit) = CBL!Commit.allInstances() in
+	all_commits->collect(c | c.date.getMonth + '/' + c.date.getYear)->asSet()->asSequence()
+				->collect(my | Tuple{monthAndYear = my,
+									number = all_commits->select(c | 
+								   										c.date.getMonth = my.extractMonth and 
+																		c.date.getYear = my.extractYear)
+															->size()
+								   });
+
 												
 rule Project2Project {
 	from

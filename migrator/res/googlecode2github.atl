@@ -1,0 +1,144 @@
+-- @path GH=/metamodel.psm.github/model/GitHub.ecore
+-- @path GC=/metamodel.psm.googlecode/model/googlecode.ecore
+
+module googlecode2github;
+create OUT : GH from IN : GC;
+
+helper def: NOT_DEFINED : String = 'Not Defined';
+
+
+rule CodeProject2Repository {
+	from
+		s: GC!GoogleCodeProject
+	to
+		t: GH!Repository (
+			name <- s.name,
+			description <- s.summary,
+			--homepage <- s.url,
+			wiki <- s.wiki,
+			users <- s.users,
+			labels <- s.projectLabels->union(s.issueLabels),
+			issues <- 
+						if not s.issueTracker.oclIsUndefined() then
+							s.issueTracker.issues
+						else
+							Sequence{}
+						endif
+		)
+}
+
+
+helper context GC!GoogleIssue def: getBody(): String =
+	let stars: String = if self.stars.oclIsUndefined() then thisModule.NOT_DEFINED else self.stars endif in
+	let description: String = if self.description.oclIsUndefined() then thisModule.NOT_DEFINED else self.description endif in
+	description + '\n relevance: ' + stars.toString();
+
+
+rule GoogleIssue2Issue {
+	from
+		s: GC!GoogleIssue
+	to
+		t: GH!Issue (
+			title <- s.summary,
+			number <- s.id.toInteger(),
+			body <- s.getBody(),
+			creator <- s.owner,
+			labels <- s.labels,
+			created_at <- s.date,
+			--state <- 
+			events <- s.cc->collect(c | thisModule.GoogleIssue2IssueEvent(c)),
+			comments <- s.comments
+		)
+}
+
+
+lazy rule GoogleIssue2IssueEvent {
+	from
+		s: GC!GoogleUser
+	to
+		t: GH!IssueEvent (
+			actor <- s,
+			type <- #mentioned
+		)
+}
+
+
+helper context GC!GoogleIssueComment def: getBody: String =
+	let status: String = if self.status.oclIsUndefined() then thisModule.NOT_DEFINED else self.status endif in
+	let summary: String = if self.summary.oclIsUndefined() then thisModule.NOT_DEFINED else self.summary endif in
+	let text: String = if self.text.oclIsUndefined() then thisModule.NOT_DEFINED else self.text endif in
+	'summary: ' + summary + '\n' + text + '\n status ' + status;
+
+
+rule GoogleIssueComment2IssueComment {
+	from
+		s: GC!GoogleIssueComment
+	to
+		t: GH!IssueComment (
+			body <- s.getBody,
+			creator <- s.owner,
+			created_at <- s.date
+		)
+}
+
+
+rule GoogleUser2User {
+	from
+		s: GC!GoogleUser
+	to
+		t: GH!User (
+			login <- s.email	
+		)
+}
+
+
+rule GoogleLabel2Label {
+	from
+		s: GC!GoogleLabel (s.oclIsTypeOf(GC!GoogleIssueLabel) or s.oclIsTypeOf(GC!GoogleProjectLabel))
+	to
+		t: GH!Label (
+			name <- s.name
+		)
+}
+
+
+helper context GC!GoogleWiki def: getProjectDescription: String =
+	let project: GC!GoogleCodeProject = self.refImmediateComposite() in
+	let description: String = if project.description.oclIsUndefined() then thisModule.NOT_DEFINED else project.description endif in
+	let license: String = if project.license.oclIsUndefined() then thisModule.NOT_DEFINED else project.license endif in
+	description + '\n license' + license;
+
+	
+rule GoogleWiki2Wiki {
+	from
+		s: GC!GoogleWiki
+	to
+		t: GH!Wiki (
+			pages <- s.pages->prepend(home)	
+		),
+		home : GH!WikiPage (
+			home <- true,
+			name <- 'Project Description',
+			body <- s.getProjectDescription
+		)
+}
+
+
+helper context GC!GoogleWikiPage def: getBody: String =
+	let summary: String = if self.summary.oclIsUndefined() then thisModule.NOT_DEFINED else self.summary endif in
+	let owner_email: String = if self.owner.oclIsUndefined() then thisModule.NOT_DEFINED else if self.owner.email.oclIsUndefined() then 'email_'+thisModule.NOT_DEFINED else self.owner.email endif endif in
+	let last_update: String = if self.updated_at.oclIsUndefined() then thisModule.NOT_DEFINED else self.updated_at endif in
+	let content: String = if self.content.oclIsUndefined() then thisModule.NOT_DEFINED else self.content endif in
+	'summary: ' + summary + '\n' + content + '\n owner: ' + owner_email + '\n last update: ' + last_update;
+
+
+rule GoogleWikiPage2WikiPage {
+	from
+		s: GC!GoogleWikiPage
+	to
+		t: GH!WikiPage (
+			name <- s.name,
+			home <- false,
+			body <- s.getBody
+		)
+}

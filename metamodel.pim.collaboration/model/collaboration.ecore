@@ -72,7 +72,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="permission" ordered="false"
         unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="childs" ordered="false"
-        upperBound="-1" eType="#//File" containment="true" eOpposite="#//File/parent"/>
+        upperBound="-1" eType="#//File" eOpposite="#//File/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" ordered="false"
         eType="#//File" eOpposite="#//File/childs"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -81,6 +81,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modified_at" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="created_by" eType="#//Person"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modified_by" eType="#//Person"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//File"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="childs" upperBound="-1"
+        eType="#//File"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BugTrackingSystem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -106,6 +109,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="created_by" eType="#//Person"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labels" upperBound="-1"
         eType="#//IssueLabel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comments" upperBound="-1"
+        eType="#//IssueComment" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Person">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="homePage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -192,4 +197,9 @@
         eType="#//Comment" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Comment" eSuperTypes="#//Item"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueComment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="created_at" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="created_by" eType="#//Person"/>
+  </eClassifiers>
 </ecore:EPackage>
